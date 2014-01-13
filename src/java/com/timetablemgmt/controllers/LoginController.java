@@ -4,9 +4,14 @@
  */
 package com.timetablemgmt.controllers;
 
+import com.timetablemgmt.domainobjects.Login;
+import com.timetablemgmt.services.LoginServiceIf;
+import javax.servlet.http.HttpServletRequest;
+import org.apache.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import com.timetablemgmt.hibernateutils.HibernateUtil;
+import org.springframework.web.bind.annotation.RequestParam;
 
 
 /**
@@ -15,11 +20,20 @@ import com.timetablemgmt.hibernateutils.HibernateUtil;
  */
 @Controller
 public class LoginController {
-    
-    @RequestMapping("/test.htm")
-    public String login() {
-        HibernateUtil.getSessionFactory();
-        System.out.println("inside Login Controller..");
-        return "test";
+    @Autowired 
+    private LoginServiceIf loginServiceIf = null;
+    @RequestMapping("/home.htm")
+    public String login(HttpServletRequest request,
+                        @RequestParam(value = "username", required = false) String username, 
+                        @RequestParam(value = "password", required = false) String password) {
+//        Logger logger = Logger.getLogger(LoginController.class);
+//        logger.debug("yes logger is working...");
+        System.out.println(username + " ============= " + password);
+        
+        Login login = loginServiceIf.getLogin(username, password);
+        
+        System.out.println("Role : "+login.getRole().getRoleName());
+        
+        return "home";
     }
 }
