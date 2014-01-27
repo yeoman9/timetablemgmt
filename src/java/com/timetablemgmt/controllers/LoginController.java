@@ -34,6 +34,6 @@ public class LoginController {
         
         System.out.println("Role : "+login.getRole().getRoleName());
         
-        return "home";
+        return "clerk/home";
     }
 }

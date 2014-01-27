@@ -35,7 +35,7 @@
 	<!-- BEGIN LOGIN -->
 	<div class="content">
 		<!-- BEGIN LOGIN FORM -->
-		<form class="form-vertical login-form" action="home.htm">
+                <form class="form-vertical login-form" action="home.htm" method="post">
 			<h3 class="form-title">Login to your account</h3>
 			<div class="alert alert-error hide">
 				<button class="close" data-dismiss="alert"></button>

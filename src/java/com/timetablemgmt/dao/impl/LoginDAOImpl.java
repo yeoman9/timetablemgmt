@@ -7,10 +7,8 @@ package com.timetablemgmt.dao.impl;
 import com.timetablemgmt.dao.LoginDAO;
 import com.timetablemgmt.domainobjects.Login;
 import com.timetablemgmt.hibernateutils.HibernateUtil;
-import javax.transaction.Transactional;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
-import org.hibernate.Transaction;
 import org.springframework.stereotype.Repository;
 
 /**
@@ -28,6 +26,7 @@ public class LoginDAOImpl extends HibernateUtil implements LoginDAO {
         try {
 //            tx = session.beginTransaction();
             login = (Login) session.createQuery("FROM Login where username = '" + username + "' AND password = '" + password + "'").uniqueResult();
+             
 //            tx.commit();
         } catch (HibernateException e) {
 //            if (tx != null) {

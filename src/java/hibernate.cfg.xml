@@ -12,5 +12,6 @@
     <mapping class="com.timetablemgmt.domainobjects.Role"></mapping>
     <mapping class="com.timetablemgmt.domainobjects.College"></mapping>
     <mapping class="com.timetablemgmt.domainobjects.Login"></mapping>
+    <mapping class="com.timetablemgmt.domainobjects.Branch"></mapping>
   </session-factory>
 </hibernate-configuration>
