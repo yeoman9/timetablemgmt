@@ -10,8 +10,10 @@ import javax.servlet.http.HttpServletRequest;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 
 /**
@@ -33,7 +35,25 @@ public class LoginController {
         Login login = loginServiceIf.getLogin(username, password);
         
         System.out.println("Role : "+login.getRole().getRoleName());
-        
         return "clerk/home";
     }
+//    @ResponseBody
+    @RequestMapping("/LoginAuth.htm")
+    public String loginAuth(@ModelAttribute(value = "loginAuth")Login login){
+        System.out.println("name : ---"+login.getUsername());
+        System.out.println("pwd : ---"+login.getPassword());
+        
+//        Login login1 = loginServiceIf.getLogin(login.getUsername(), login.getPassword());
+//        if(login1 == null){
+//            return "loginAuthfailed";
+//        }
+//        c
+//        login1.getRole()
+        
+        
+        return "success";
+    }
+    
+    
+    
 }

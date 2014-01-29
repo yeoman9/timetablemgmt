@@ -4,9 +4,11 @@
  */
 package com.timetablemgmt.controllers;
 
+import com.timetablemgmt.domainobjects.Login;
 import com.timetablemgmt.hibernateutils.HibernateUtil;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
 
 /**
  *
@@ -15,8 +17,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class IndexController {
     @RequestMapping("/index.htm")
-    public String indexHandler(){
+    public ModelAndView indexHandler(){
         HibernateUtil.getSessionFactory();
-        return "index";
+        ModelAndView mav = new ModelAndView();
+        mav.addObject("loginAuth",new Login());
+        mav.setViewName("index");
+        return mav;
     }
 }
