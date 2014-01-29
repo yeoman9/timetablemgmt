@@ -34,7 +34,7 @@ public class LoginController {
         
         Login login = loginServiceIf.getLogin(username, password);
         
-        System.out.println("Role : "+login.getRole().getRoleName());
+        System.out.println("Role : "+login.getUserRoleId().getRoleName());
         return "clerk/home";
     }
 //    @ResponseBody

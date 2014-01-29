@@ -19,28 +19,34 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
     <!-- BEGIN HEAD -->
     <head>
         <meta charset="utf-8" />
-	<title>Metronic | Admin Dashboard Template</title>
-	<meta content="width=device-width, initial-scale=1.0" name="viewport" />
-	<meta content="" name="description" />
-	<meta content="" name="author" />
-	<!-- BEGIN GLOBAL MANDATORY STYLES -->
-	<link href="assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
-	<link href="assets/plugins/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet" type="text/css"/>
-	<link href="assets/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
-	<link href="assets/css/style-metro.css" rel="stylesheet" type="text/css"/>
-	<link href="assets/css/style.css" rel="stylesheet" type="text/css"/>
-	<link href="assets/css/style-responsive.css" rel="stylesheet" type="text/css"/>
-	<link href="assets/css/themes/default.css" rel="stylesheet" type="text/css" id="style_color"/>
-	<link href="assets/plugins/uniform/css/uniform.default.css" rel="stylesheet" type="text/css"/>
-	<!-- END GLOBAL MANDATORY STYLES -->
-	<!-- BEGIN PAGE LEVEL STYLES --> 
-	<link href="assets/plugins/gritter/css/jquery.gritter.css" rel="stylesheet" type="text/css"/>
-	<link href="assets/plugins/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet" type="text/css" />
-	<link href="assets/plugins/fullcalendar/fullcalendar/fullcalendar.css" rel="stylesheet" type="text/css"/>
-	<link href="assets/plugins/jqvmap/jqvmap/jqvmap.css" rel="stylesheet" type="text/css" media="screen"/>
-	<link href="assets/plugins/jquery-easy-pie-chart/jquery.easy-pie-chart.css" rel="stylesheet" type="text/css" media="screen"/>
-	<!-- END PAGE LEVEL STYLES -->
-	<link rel="shortcut icon" href="favicon.ico" />
+        <title>Metronic | Admin Dashboard Template</title>
+        <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+        <meta content="" name="description" />
+        <meta content="" name="author" />
+        <!-- BEGIN GLOBAL MANDATORY STYLES -->
+        <link href="assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+        <link href="assets/plugins/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet" type="text/css"/>
+        <link href="assets/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+        <link href="assets/css/style-metro.css" rel="stylesheet" type="text/css"/>
+        <link href="assets/css/style.css" rel="stylesheet" type="text/css"/>
+        <link href="assets/css/style-responsive.css" rel="stylesheet" type="text/css"/>
+        <link href="assets/css/themes/default.css" rel="stylesheet" type="text/css" id="style_color"/>
+        <link href="assets/plugins/uniform/css/uniform.default.css" rel="stylesheet" type="text/css"/>
+        <!-- END GLOBAL MANDATORY STYLES -->
+        <!-- BEGIN PAGE LEVEL STYLES --> 
+        <link href="assets/plugins/gritter/css/jquery.gritter.css" rel="stylesheet" type="text/css"/>
+        <link href="assets/plugins/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet" type="text/css" />
+        <link href="assets/plugins/fullcalendar/fullcalendar/fullcalendar.css" rel="stylesheet" type="text/css"/>
+        <link href="assets/plugins/jqvmap/jqvmap/jqvmap.css" rel="stylesheet" type="text/css" media="screen"/>
+        <link href="assets/plugins/jquery-easy-pie-chart/jquery.easy-pie-chart.css" rel="stylesheet" type="text/css" media="screen"/>
+        <!-- END PAGE LEVEL STYLES -->
+        <!-- BEGIN PAGE LEVEL STYLES -->
+        <link rel="stylesheet" type="text/css" href="assets/plugins/select2/select2_metro.css" />
+        <link rel="stylesheet" href="assets/plugins/data-tables/DT_bootstrap.css" />
+        <!-- END PAGE LEVEL STYLES -->
+        
+        <link rel="shortcut icon" href="favicon.ico" />
+    </head>
     <!-- END HEAD -->
     <!-- BEGIN BODY -->
     <body class="page-header-fixed">
@@ -895,13 +901,11 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
                                 </div>
                             </div>
                         </div>-->
-                        <div id="branch_blocks">
-                            <jsp:include page="branch_blocks.jsp"/>
-                        </div>
+                       
                         <!-- END DASHBOARD STATS -->
                         <div class="clearfix"></div>
                         <div id="teacherList">
-                              
+                            <jsp:include page="../teacherList.jsp" />
                         </div>
                             
                         <!--					<div class="row-fluid">
@@ -2039,7 +2043,7 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
         <jsp:include page="../commons/footer.jsp" />
 
         <!-- END FOOTER -->
-        <!-- BEGIN JAVASCRIPTS(Load javascripts at bottom, this will reduce page load time) -->
+<!-- BEGIN JAVASCRIPTS(Load javascripts at bottom, this will reduce page load time) -->
 	<!-- BEGIN CORE PLUGINS -->
 	<script src="assets/plugins/jquery-1.10.1.min.js" type="text/javascript"></script>
 	<script src="assets/plugins/jquery-migrate-1.2.1.min.js" type="text/javascript"></script>
@@ -2077,6 +2081,13 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
 	<script src="assets/scripts/app.js" type="text/javascript"></script>
 	<script src="assets/scripts/index.js" type="text/javascript"></script>        
 	<!-- END PAGE LEVEL SCRIPTS -->  
+        <!-- BEGIN PAGE LEVEL PLUGINS -->
+	<script type="text/javascript" src="assets/plugins/select2/select2.min.js"></script>
+	<script type="text/javascript" src="assets/plugins/data-tables/jquery.dataTables.js"></script>
+	<script type="text/javascript" src="assets/plugins/data-tables/DT_bootstrap.js"></script>
+	<!-- END PAGE LEVEL PLUGINS -->
+	<!-- BEGIN PAGE LEVEL SCRIPTS -->
+	<script src="assets/scripts/table-editable.js"></script>    
 	<script>
 		jQuery(document).ready(function() {    
 		   App.init(); // initlayout and core plugins
@@ -2088,16 +2099,10 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
 		   Index.initMiniCharts();
 		   Index.initDashboardDaterange();
 		   Index.initIntro();
+                   TableEditable.init();
 		});
-            
-                $(".more").click(function() {
-                    $("#branch_blocks").hide();
-                    window.location = "clerk_teacherList.htm?id=0";
-                });
-                
-        </script>
-        
-        <!-- END JAVASCRIPTS -->
+	</script>
+	<!-- END JAVASCRIPTS -->
     </body>
     <!-- END BODY -->
 </html>

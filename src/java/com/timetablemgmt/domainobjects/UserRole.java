@@ -4,6 +4,7 @@
  */
 package com.timetablemgmt.domainobjects;
 
+import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -15,8 +16,8 @@ import javax.persistence.Table;
  * @author mayur
  */
 @Entity
-@Table(name = "ROLE")
-public class Role {
+@Table(name = "USER_ROLE")
+public class UserRole implements Serializable {
 
     @Id
     @GeneratedValue

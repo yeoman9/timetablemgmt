@@ -5,13 +5,8 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
-
-<!-- BEGIN PAGE LEVEL STYLES -->
-<link rel="stylesheet" type="text/css" href="assets/plugins/select2/select2_metro.css" />
-<link rel="stylesheet" href="assets/plugins/data-tables/DT_bootstrap.css" />
-<!-- END PAGE LEVEL STYLES -->
-
 
 <div class="row-fluid">
     <div class="span12">
@@ -55,54 +50,17 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr class="">
-                            <td>alex</td>
-                            <td>Alex Nilson</td>
-                            <td>1234</td>
-                            <td class="center">power user</td>
-                            <td><a class="edit" href="javascript:;">Edit</a></td>
-                            <td><a class="delete" href="javascript:;">Delete</a></td>
-                        </tr>
-                        <tr class="">
-                            <td>lisa</td>
-                            <td>Lisa Wong</td>
-                            <td>434</td>
-                            <td class="center">new user</td>
-                            <td><a class="edit" href="javascript:;">Edit</a></td>
-                            <td><a class="delete" href="javascript:;">Delete</a></td>
-                        </tr>
-                        <tr class="">
-                            <td>nick12</td>
-                            <td>Nick Roberts</td>
-                            <td>232</td>
-                            <td class="center">power user</td>
-                            <td><a class="edit" href="javascript:;">Edit</a></td>
-                            <td><a class="delete" href="javascript:;">Delete</a></td>
-                        </tr>
-                        <tr class="">
-                            <td>goldweb</td>
-                            <td>Sergio Jackson</td>
-                            <td>132</td>
-                            <td class="center">elite user</td>
-                            <td><a class="edit" href="javascript:;">Edit</a></td>
-                            <td><a class="delete" href="javascript:;">Delete</a></td>
-                        </tr>
-                        <tr class="">
-                            <td>webriver</td>
-                            <td>Antonio Sanches</td>
-                            <td>462</td>
-                            <td class="center">new user</td>
-                            <td><a class="edit" href="javascript:;">Edit</a></td>
-                            <td><a class="delete" href="javascript:;">Delete</a></td>
-                        </tr>
-                        <tr class="">
-                            <td>gist124</td>
-                            <td>Nick Roberts</td>
-                            <td>62</td>
-                            <td class="center">new user</td>
-                            <td><a class="edit" href="javascript:;">Edit</a></td>
-                            <td><a class="delete" href="javascript:;">Delete</a></td>
-                        </tr>
+                        <c:forEach items="${teachers}" var="teacher">
+                                <tr>
+                                    <td>${teacher.loginId.email}</td>
+                                    <td>${teacher.branchId.name}</td>
+                                    <td>${teacher.id}</td>
+                                    <td class="center">${teacher.name}</td>
+                                    <td><a class="edit" href="javascript:;">Edit</a></td>
+                                    <td><a class="delete" href="javascript:;">Delete</a></td>
+                                </tr>
+                        </c:forEach>
+                        
                     </tbody>
                 </table>
             </div>

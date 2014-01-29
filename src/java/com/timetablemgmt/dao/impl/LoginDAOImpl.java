@@ -25,7 +25,7 @@ public class LoginDAOImpl extends HibernateUtil implements LoginDAO {
         Login login = null;
         try {
 //            tx = session.beginTransaction();
-            login = (Login) session.createQuery("FROM Login where username = '" + username + "' AND password = '" + password + "'").uniqueResult();
+            login = (Login) session.createQuery("FROM Login WHERE username = '" + username + "' AND password = '" + password + "'").uniqueResult();
              
 //            tx.commit();
         } catch (HibernateException e) {

@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
  *
  * @author mayur
  */
-
 public interface LoginServiceIf {
-   public Login getLogin(String username, String password);
+
+    public Login getLogin(String username, String password);
 }

@@ -9,6 +9,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
@@ -30,7 +31,9 @@ public class Login implements Serializable {
     @Column(name = "EMAIL")
     private String email;
     @ManyToOne
-    private Role role;
+    @JoinColumn(name = "ROLE_ID")
+    private UserRole userRoleId;
+    
     @Column(name = "STATUS")
     private char status;
     
@@ -67,12 +70,12 @@ public class Login implements Serializable {
         this.email = email;
     }
 
-    public Role getRole() {
-        return role;
+    public UserRole getUserRoleId() {
+        return userRoleId;
     }
 
-    public void setRole(Role role) {
-        this.role = role;
+    public void setUserRoleId(UserRole userRoleId) {
+        this.userRoleId = userRoleId;
     }
 
     public char getStatus() {
