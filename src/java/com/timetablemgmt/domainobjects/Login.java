@@ -32,7 +32,7 @@ public class Login implements Serializable {
     private String password;
     @Column(name = "EMAIL")
     private String email;
-    @ManyToOne(/*fetch = FetchType.LAZY,*/ cascade = CascadeType.ALL)
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "ROLE_ID")
     private UserRole userRoleId;
     

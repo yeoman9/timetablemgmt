@@ -39,6 +39,7 @@ public class LoginDAOImpl extends BaseHibernateDAO<Login, Long> implements Login
         Login login = null;
         try {
             login = (Login) getCurrentSession().createQuery("FROM Login WHERE username = '" + username + "' AND password = '" + password + "'").uniqueResult();
+            if(login!=null)
             Hibernate.initialize(login.getUserRoleId());
         } catch (HibernateException e) {
         } finally {

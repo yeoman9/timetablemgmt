@@ -90,8 +90,9 @@ public abstract class BaseHibernateDAO<T, ID extends Serializable> extends Hiber
         @Override
 	public T persist(T entity) {
             try {
-                Transaction tx = getCurrentSession().beginTransaction();
-                getCurrentSession().saveOrUpdate(entity);
+                Session session = getCurrentSession();
+                Transaction tx = session.beginTransaction();
+                session.saveOrUpdate(entity);
                 tx.commit();
             } catch (ConstraintViolationException e) {
                 throw new DuplicateEntryException(e);

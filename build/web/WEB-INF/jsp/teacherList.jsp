@@ -48,7 +48,7 @@
                                     </c:otherwise>
                                 </c:choose>
 
-                                <td><a href="javascript:;">View</a></td>
+                                <td><a href="profile.htm">View</a></td>
                             </tr>
                         </c:forEach>
 

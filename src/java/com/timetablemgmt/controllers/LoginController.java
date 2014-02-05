@@ -5,17 +5,14 @@
 package com.timetablemgmt.controllers;
 
 import com.timetablemgmt.domainobjects.Login;
-import com.timetablemgmt.domainobjects.UserRole;
 import com.timetablemgmt.services.LoginServiceIf;
 import javax.servlet.http.HttpServletRequest;
-import org.apache.log4j.Logger;
-import org.hibernate.Hibernate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
 
 /**
@@ -26,40 +23,31 @@ import org.springframework.web.bind.annotation.ResponseBody;
 public class LoginController {
     @Autowired 
     private LoginServiceIf loginServiceIf = null;
-    @RequestMapping("/home.htm")
-    public String login(HttpServletRequest request,
-                        @RequestParam(value = "username", required = false) String username, 
-                        @RequestParam(value = "password", required = false) String password) {
-//        Logger logger = Logger.getLogger(LoginController.class);
-//        logger.debug("yes logger is working...");
-        System.out.println(username + " ============= " + password);
-        
-        Login login = loginServiceIf.getLogin(username, password);
-        
-        System.out.println("Role : "+login.getUserRoleId().getRoleName());
-        return "clerk/home";
-    }
-    //@ResponseBody
+//    @RequestMapping("/home.htm")
+//    public String login(HttpServletRequest request,
+//                        @RequestParam(value = "username", required = false) String username, 
+//                        @RequestParam(value = "password", required = false) String password) {
+////        Logger logger = Logger.getLogger(LoginController.class);
+////        logger.debug("yes logger is working...");
+//        System.out.println(username + " ============= " + password);
+//        
+//        Login login = loginServiceIf.getLogin(username, password);
+//        
+//        System.out.println("Role : "+login.getUserRoleId().getRoleName());
+//        return "clerk/home";
+//    }
+    
     @RequestMapping("/LoginAuth.htm")
-    public String loginAuth(@ModelAttribute(value = "loginAuth")Login login){
-        System.out.println("name : ---"+login.getUsername());
-        System.out.println("pwd : ---"+login.getPassword());
-        
-//        Login login1 = loginServiceIf.getLogin(login.getUsername(), login.getPassword());
-//        if(login1 == null){
-//            return "loginAuthfailed";
-//        }
-//        c
-//        login1.getRole()
-        Login login1 = loginServiceIf.getLoginWithRole(login.getUsername(), login.getPassword());
-        
-//        System.out.println("ROle : "+login1.getUserRoleId().getRoleName());
-                
-                
-//        return "success";
-        return "clerk/home";
+    public ModelAndView loginAuth(@ModelAttribute(value = "loginAuth")Login login){
+        Login loggedInUser = loginServiceIf.getLoginWithRole(login.getUsername(), login.getPassword());
+        ModelAndView modelAndView = new ModelAndView();
+        if(loggedInUser!=null){
+            modelAndView.addObject("loggedInUserName",loggedInUser.getUsername());
+            modelAndView.setViewName("clerk/home");
+        }
+        else{
+            modelAndView.setViewName("index");
+        }
+            return modelAndView;
     }
-    
-    
-    
 }
