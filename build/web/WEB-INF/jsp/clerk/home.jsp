@@ -19,29 +19,28 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
     <!-- BEGIN HEAD -->
     <head>
         <meta charset="utf-8" />
-        <title>Metronic | Admin Dashboard Template</title>
-        <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-        <meta content="" name="description" />
-        <meta content="" name="author" />
-        <!-- BEGIN GLOBAL MANDATORY STYLES -->
-        <link href="assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
-        <link href="assets/plugins/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet" type="text/css"/>
-        <link href="assets/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
-        <link href="assets/css/style-metro.css" rel="stylesheet" type="text/css"/>
-        <link href="assets/css/style.css" rel="stylesheet" type="text/css"/>
-        <link href="assets/css/style-responsive.css" rel="stylesheet" type="text/css"/>
-        <link href="assets/css/themes/default.css" rel="stylesheet" type="text/css" id="style_color"/>
-        <link href="assets/plugins/uniform/css/uniform.default.css" rel="stylesheet" type="text/css"/>
-        <!-- END GLOBAL MANDATORY STYLES -->
-        <!-- BEGIN PAGE LEVEL STYLES --> 
-        <link href="assets/plugins/gritter/css/jquery.gritter.css" rel="stylesheet" type="text/css"/>
-        <link href="assets/plugins/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet" type="text/css" />
-        <link href="assets/plugins/fullcalendar/fullcalendar/fullcalendar.css" rel="stylesheet" type="text/css"/>
-        <link href="assets/plugins/jqvmap/jqvmap/jqvmap.css" rel="stylesheet" type="text/css" media="screen"/>
-        <link href="assets/plugins/jquery-easy-pie-chart/jquery.easy-pie-chart.css" rel="stylesheet" type="text/css" media="screen"/>
-        <!-- END PAGE LEVEL STYLES -->
-        <link rel="shortcut icon" href="favicon.ico" />
-    </head>
+	<title>Metronic | Admin Dashboard Template</title>
+	<meta content="width=device-width, initial-scale=1.0" name="viewport" />
+	<meta content="" name="description" />
+	<meta content="" name="author" />
+	<!-- BEGIN GLOBAL MANDATORY STYLES -->
+	<link href="assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+	<link href="assets/plugins/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet" type="text/css"/>
+	<link href="assets/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+	<link href="assets/css/style-metro.css" rel="stylesheet" type="text/css"/>
+	<link href="assets/css/style.css" rel="stylesheet" type="text/css"/>
+	<link href="assets/css/style-responsive.css" rel="stylesheet" type="text/css"/>
+	<link href="assets/css/themes/default.css" rel="stylesheet" type="text/css" id="style_color"/>
+	<link href="assets/plugins/uniform/css/uniform.default.css" rel="stylesheet" type="text/css"/>
+	<!-- END GLOBAL MANDATORY STYLES -->
+	<!-- BEGIN PAGE LEVEL STYLES --> 
+	<link href="assets/plugins/gritter/css/jquery.gritter.css" rel="stylesheet" type="text/css"/>
+	<link href="assets/plugins/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet" type="text/css" />
+	<link href="assets/plugins/fullcalendar/fullcalendar/fullcalendar.css" rel="stylesheet" type="text/css"/>
+	<link href="assets/plugins/jqvmap/jqvmap/jqvmap.css" rel="stylesheet" type="text/css" media="screen"/>
+	<link href="assets/plugins/jquery-easy-pie-chart/jquery.easy-pie-chart.css" rel="stylesheet" type="text/css" media="screen"/>
+	<!-- END PAGE LEVEL STYLES -->
+	<link rel="shortcut icon" href="favicon.ico" />
     <!-- END HEAD -->
     <!-- BEGIN BODY -->
     <body class="page-header-fixed">
@@ -2041,78 +2040,59 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
 
         <!-- END FOOTER -->
         <!-- BEGIN JAVASCRIPTS(Load javascripts at bottom, this will reduce page load time) -->
-        <!-- BEGIN CORE PLUGINS -->
-        <script src="assets/plugins/jquery-1.10.1.min.js" type="text/javascript"></script>
-        <script src="assets/plugins/jquery-migrate-1.2.1.min.js" type="text/javascript"></script>
-        <!-- IMPORTANT! Load jquery-ui-1.10.1.custom.min.js before bootstrap.min.js to fix bootstrap tooltip conflict with jquery ui tooltip -->
-        <script src="assets/plugins/jquery-ui/jquery-ui-1.10.1.custom.min.js" type="text/javascript"></script>      
-        <script src="assets/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
-        <!--[if lt IE 9]>
-        <script src="assets/plugins/excanvas.min.js"></script>
-        <script src="assets/plugins/respond.min.js"></script>  
-        <![endif]-->   
-        <script src="assets/plugins/jquery-slimscroll/jquery.slimscroll.min.js" type="text/javascript"></script>
-        <script src="assets/plugins/jquery.blockui.min.js" type="text/javascript"></script>  
-        <script src="assets/plugins/jquery.cookie.min.js" type="text/javascript"></script>
-        <script src="assets/plugins/uniform/jquery.uniform.min.js" type="text/javascript" ></script>
-        <!-- END CORE PLUGINS -->
-        <!-- BEGIN PAGE LEVEL PLUGINS -->
-        <script src="assets/plugins/jqvmap/jqvmap/jquery.vmap.js" type="text/javascript"></script>   
-        <script src="assets/plugins/jqvmap/jqvmap/maps/jquery.vmap.russia.js" type="text/javascript"></script>
-        <script src="assets/plugins/jqvmap/jqvmap/maps/jquery.vmap.world.js" type="text/javascript"></script>
-        <script src="assets/plugins/jqvmap/jqvmap/maps/jquery.vmap.europe.js" type="text/javascript"></script>
-        <script src="assets/plugins/jqvmap/jqvmap/maps/jquery.vmap.germany.js" type="text/javascript"></script>
-        <script src="assets/plugins/jqvmap/jqvmap/maps/jquery.vmap.usa.js" type="text/javascript"></script>
-        <script src="assets/plugins/jqvmap/jqvmap/data/jquery.vmap.sampledata.js" type="text/javascript"></script>  
-        <script src="assets/plugins/flot/jquery.flot.js" type="text/javascript"></script>
-        <script src="assets/plugins/flot/jquery.flot.resize.js" type="text/javascript"></script>
-        <script src="assets/plugins/jquery.pulsate.min.js" type="text/javascript"></script>
-        <script src="assets/plugins/bootstrap-daterangepicker/date.js" type="text/javascript"></script>
-        <script src="assets/plugins/bootstrap-daterangepicker/daterangepicker.js" type="text/javascript"></script>     
-        <script src="assets/plugins/gritter/js/jquery.gritter.js" type="text/javascript"></script>
-        <script src="assets/plugins/fullcalendar/fullcalendar/fullcalendar.min.js" type="text/javascript"></script>
-        <script src="assets/plugins/jquery-easy-pie-chart/jquery.easy-pie-chart.js" type="text/javascript"></script>
-        <script src="assets/plugins/jquery.sparkline.min.js" type="text/javascript"></script>  
-        <!-- END PAGE LEVEL PLUGINS -->
-        <!-- BEGIN PAGE LEVEL SCRIPTS -->
-        <script src="assets/scripts/app.js" type="text/javascript"></script>
-        <script src="assets/scripts/index.js" type="text/javascript"></script>        
-        <!-- END PAGE LEVEL SCRIPTS --> 
-        <!-- BEGIN TABLELIST PAGE LEVEL PLUGINS -->
-	<script type="text/javascript" src="assets/plugins/select2/select2.min.js"></script>
-	<script type="text/javascript" src="assets/plugins/data-tables/jquery.dataTables.js"></script>
-	<script type="text/javascript" src="assets/plugins/data-tables/DT_bootstrap.js"></script>
-	<!-- END TABLELIST PAGE LEVEL PLUGINS -->
-	<!-- BEGIN TABLELIST PAGE LEVEL SCRIPTS -->
-	<script src="assets/scripts/app.js"></script>
-	<script src="assets/scripts/table-editable.js"></script>    
-        <!-- END TABLELIST PAGE LEVEL SCRIPTS -->
-        
-        <script>
-            jQuery(document).ready(function() {
-                App.init(); // initlayout and core plugins
-                Index.init();
-                Index.initJQVMAP(); // init index page's custom scripts
-                Index.initCalendar(); // init index page's custom scripts
-                Index.initCharts(); // init index page's custom scripts
-                Index.initChat();
-                Index.initMiniCharts();
-                Index.initDashboardDaterange();
-                Index.initIntro();
-                TableEditable.init();
-            });
-            $(".more").click(function() {
+	<!-- BEGIN CORE PLUGINS -->
+	<script src="assets/plugins/jquery-1.10.1.min.js" type="text/javascript"></script>
+	<script src="assets/plugins/jquery-migrate-1.2.1.min.js" type="text/javascript"></script>
+	<!-- IMPORTANT! Load jquery-ui-1.10.1.custom.min.js before bootstrap.min.js to fix bootstrap tooltip conflict with jquery ui tooltip -->
+	<script src="assets/plugins/jquery-ui/jquery-ui-1.10.1.custom.min.js" type="text/javascript"></script>      
+	<script src="assets/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+	<!--[if lt IE 9]>
+	<script src="assets/plugins/excanvas.min.js"></script>
+	<script src="assets/plugins/respond.min.js"></script>  
+	<![endif]-->   
+	<script src="assets/plugins/jquery-slimscroll/jquery.slimscroll.min.js" type="text/javascript"></script>
+	<script src="assets/plugins/jquery.blockui.min.js" type="text/javascript"></script>  
+	<script src="assets/plugins/jquery.cookie.min.js" type="text/javascript"></script>
+	<script src="assets/plugins/uniform/jquery.uniform.min.js" type="text/javascript" ></script>
+	<!-- END CORE PLUGINS -->
+	<!-- BEGIN PAGE LEVEL PLUGINS -->
+	<script src="assets/plugins/jqvmap/jqvmap/jquery.vmap.js" type="text/javascript"></script>   
+	<script src="assets/plugins/jqvmap/jqvmap/maps/jquery.vmap.russia.js" type="text/javascript"></script>
+	<script src="assets/plugins/jqvmap/jqvmap/maps/jquery.vmap.world.js" type="text/javascript"></script>
+	<script src="assets/plugins/jqvmap/jqvmap/maps/jquery.vmap.europe.js" type="text/javascript"></script>
+	<script src="assets/plugins/jqvmap/jqvmap/maps/jquery.vmap.germany.js" type="text/javascript"></script>
+	<script src="assets/plugins/jqvmap/jqvmap/maps/jquery.vmap.usa.js" type="text/javascript"></script>
+	<script src="assets/plugins/jqvmap/jqvmap/data/jquery.vmap.sampledata.js" type="text/javascript"></script>  
+	<script src="assets/plugins/flot/jquery.flot.js" type="text/javascript"></script>
+	<script src="assets/plugins/flot/jquery.flot.resize.js" type="text/javascript"></script>
+	<script src="assets/plugins/jquery.pulsate.min.js" type="text/javascript"></script>
+	<script src="assets/plugins/bootstrap-daterangepicker/date.js" type="text/javascript"></script>
+	<script src="assets/plugins/bootstrap-daterangepicker/daterangepicker.js" type="text/javascript"></script>     
+	<script src="assets/plugins/gritter/js/jquery.gritter.js" type="text/javascript"></script>
+	<script src="assets/plugins/fullcalendar/fullcalendar/fullcalendar.min.js" type="text/javascript"></script>
+	<script src="assets/plugins/jquery-easy-pie-chart/jquery.easy-pie-chart.js" type="text/javascript"></script>
+	<script src="assets/plugins/jquery.sparkline.min.js" type="text/javascript"></script>  
+	<!-- END PAGE LEVEL PLUGINS -->
+	<!-- BEGIN PAGE LEVEL SCRIPTS -->
+	<script src="assets/scripts/app.js" type="text/javascript"></script>
+	<script src="assets/scripts/index.js" type="text/javascript"></script>        
+	<!-- END PAGE LEVEL SCRIPTS -->  
+	<script>
+		jQuery(document).ready(function() {    
+		   App.init(); // initlayout and core plugins
+		   Index.init();
+		   Index.initJQVMAP(); // init index page's custom scripts
+		   Index.initCalendar(); // init index page's custom scripts
+		   Index.initCharts(); // init index page's custom scripts
+		   Index.initChat();
+		   Index.initMiniCharts();
+		   Index.initDashboardDaterange();
+		   Index.initIntro();
+		});
+            
+                $(".more").click(function() {
                     $("#branch_blocks").hide();
-                        $.ajax({
-                        url: "teacherList.htm",
-                        error: function() {
-                            alert("Some Error is there..Try after some time.");
-                        },
-                        success: function(result) {
-                            document.getElementById('teacherList').innerHTML = result;
-                        }
-                    });
-
+//                    window.location = "clerk_teacherList.htm?id=0";
                 });
                 
         </script>

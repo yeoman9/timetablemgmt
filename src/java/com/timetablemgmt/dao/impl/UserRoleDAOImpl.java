@@ -4,11 +4,10 @@
  */
 package com.timetablemgmt.dao.impl;
 
-import com.timetablemgmt.dao.BranchDAO;
+import com.timetablemgmt.dao.UserRoleDAO;
 import com.timetablemgmt.domainobjects.Branch;
-import com.timetablemgmt.hibernateutils.BaseHibernateDAO;
+import com.timetablemgmt.domainobjects.UserRole;
 import static com.timetablemgmt.hibernateutils.HibernateUtil.getSessionFactory;
-import java.io.Serializable;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.springframework.stereotype.Repository;
@@ -18,13 +17,14 @@ import org.springframework.stereotype.Repository;
  * @author mayur
  */
 @Repository
-public class BranchDAOImpl implements BranchDAO{
-    Session session = getSessionFactory().openSession();
-    
+public class UserRoleDAOImpl implements UserRoleDAO{
+
     @Override
-    public Branch getById(Long id) {
-        try {
-             return (Branch) session.createQuery("SELECT FROM Branch WHERE id='" + id +"'");
+    public UserRole getById(Long id) {
+        Session session = getSessionFactory().openSession();
+    try {
+            System.out.println("yess returning userRole...");
+             return (UserRole) session.createQuery("SELECT FROM UserRole WHERE id='" + id +"'");
              
         } catch (HibernateException e) {
         
@@ -33,5 +33,5 @@ public class BranchDAOImpl implements BranchDAO{
         }
         return null;
     }
-
+    
 }

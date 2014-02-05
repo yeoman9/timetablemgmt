@@ -5,108 +5,119 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <!DOCTYPE html>
-
-<!-- BEGIN PAGE LEVEL STYLES -->
-<link rel="stylesheet" type="text/css" href="assets/plugins/select2/select2_metro.css" />
-<link rel="stylesheet" href="assets/plugins/data-tables/DT_bootstrap.css" />
-<!-- END PAGE LEVEL STYLES -->
-
-
 <div class="row-fluid">
     <div class="span12">
         <!-- BEGIN EXAMPLE TABLE PORTLET-->
-        <div class="portlet box blue">
+        <div class="portlet box purple">
             <div class="portlet-title">
-                <div class="caption"><i class="icon-edit"></i>Editable Table</div>
-                <div class="tools">
-                    <a href="javascript:;" class="collapse"></a>
-                    <a href="#portlet-config" data-toggle="modal" class="config"></a>
-                    <a href="javascript:;" class="reload"></a>
-                    <a href="javascript:;" class="remove"></a>
+                <div class="caption"><i class="icon-list"></i>Teacher List</div>
+                <div class="actions">
+                    <a href="#responsive" class="btn green" data-toggle="modal"><i class="icon-plus"></i> Add</a>
+                    <a href="#" class="btn yellow"><i class="icon-print"></i> Print</a>
                 </div>
             </div>
             <div class="portlet-body">
-                <div class="clearfix">
-                    <div class="btn-group">
-                        <button id="sample_editable_1_new" class="btn green">
-                            Add New <i class="icon-plus"></i>
-                        </button>
-                    </div>
-                    <div class="btn-group pull-right">
-                        <button class="btn dropdown-toggle" data-toggle="dropdown">Tools <i class="icon-angle-down"></i>
-                        </button>
-                        <ul class="dropdown-menu pull-right">
-                            <li><a href="#">Print</a></li>
-                            <li><a href="#">Save as PDF</a></li>
-                            <li><a href="#">Export to Excel</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <table class="table table-striped table-hover table-bordered" id="sample_editable_1">
+                <table class="table table-striped table-bordered table-hover" id="sample_3">
                     <thead>
                         <tr>
                             <th>Username</th>
-                            <th>Full Name</th>
-                            <th>Points</th>
-                            <th>Notes</th>
-                            <th>Edit</th>
-                            <th>Delete</th>
+                            <th>Name</th>
+                            <th>Short Name</th>
+                            <th>Email</th>
+                            <th>Status</th>
+                            <th>Profile</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr class="">
-                            <td>alex</td>
-                            <td>Alex Nilson</td>
-                            <td>1234</td>
-                            <td class="center">power user</td>
-                            <td><a class="edit" href="javascript:;">Edit</a></td>
-                            <td><a class="delete" href="javascript:;">Delete</a></td>
-                        </tr>
-                        <tr class="">
-                            <td>lisa</td>
-                            <td>Lisa Wong</td>
-                            <td>434</td>
-                            <td class="center">new user</td>
-                            <td><a class="edit" href="javascript:;">Edit</a></td>
-                            <td><a class="delete" href="javascript:;">Delete</a></td>
-                        </tr>
-                        <tr class="">
-                            <td>nick12</td>
-                            <td>Nick Roberts</td>
-                            <td>232</td>
-                            <td class="center">power user</td>
-                            <td><a class="edit" href="javascript:;">Edit</a></td>
-                            <td><a class="delete" href="javascript:;">Delete</a></td>
-                        </tr>
-                        <tr class="">
-                            <td>goldweb</td>
-                            <td>Sergio Jackson</td>
-                            <td>132</td>
-                            <td class="center">elite user</td>
-                            <td><a class="edit" href="javascript:;">Edit</a></td>
-                            <td><a class="delete" href="javascript:;">Delete</a></td>
-                        </tr>
-                        <tr class="">
-                            <td>webriver</td>
-                            <td>Antonio Sanches</td>
-                            <td>462</td>
-                            <td class="center">new user</td>
-                            <td><a class="edit" href="javascript:;">Edit</a></td>
-                            <td><a class="delete" href="javascript:;">Delete</a></td>
-                        </tr>
-                        <tr class="">
-                            <td>gist124</td>
-                            <td>Nick Roberts</td>
-                            <td>62</td>
-                            <td class="center">new user</td>
-                            <td><a class="edit" href="javascript:;">Edit</a></td>
-                            <td><a class="delete" href="javascript:;">Delete</a></td>
-                        </tr>
+                        <c:forEach items="${teachers}" var="teacher">
+                            <tr>
+                                <td>${teacher.loginId.username}</td>
+                                <td>${teacher.name}</td>
+                                <td>${teacher.shortName}</td>
+                                <td>${teacher.loginId.email}</td>
+
+                                <c:choose>
+                                    <c:when test="${teacher.loginId.status == 'A'}">
+                                        <td><span class="label label-success">Active</span></td>
+                                    </c:when>
+                                    <c:otherwise>
+                                        <td><span class="label label-inverse">Blocked</span></td>
+                                    </c:otherwise>
+                                </c:choose>
+
+                                <td><a href="javascript:;">View</a></td>
+                            </tr>
+                        </c:forEach>
+
                     </tbody>
                 </table>
             </div>
         </div>
         <!-- END EXAMPLE TABLE PORTLET-->
+
+        <!-- START ADD NEW TEACHER MODAL  -->
+        <div id="responsive" class="modal hide fade" tabindex="-1" data-width="760">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                <h3>Add new Teacher</h3>
+            </div>
+             <!-- BEGIN FORM-->
+             <form:form action="addTeacher.htm" modelAttribute="newTeacher" class="form-horizontal">
+            <div class="modal-body">
+                    <div class="control-group">
+                        <label class="control-label">Name<span class="required">*</span></label>
+                        <div class="controls">
+                            <form:input path="name" type="text" placeholder="name" class="m-wrap medium"></form:input>
+                            <span class="help-inline">Some hint here</span>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label">Username<span class="required">*</span></label>
+                        <div class="controls">
+                        <form:input path="loginId.username" type="text" placeholder="username" class="m-wrap medium"></form:input>
+                            <span class="help-inline">Some hint here</span>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label">Email<span class="required">*</span></label>
+                        <div class="controls">
+                        <form:input path="loginId.email" type="text" placeholder="email" class="m-wrap medium"></form:input>
+                            <span class="help-inline">Some hint here</span>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label">Short Name<span class="required">*</span></label>
+                        <div class="controls">
+                        <form:input path="shortName" type="text" placeholder="alias" class="m-wrap small"></form:input>
+                            <span class="help-inline">Some hint here</span>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label">Branch<span class="required">*</span></label>
+                        <div class="controls">
+                            <form:select path="branchId.shortName" class="small m-wrap" tabindex="1">
+                                <form:option value="EC">EC</form:option>
+                                <form:option value="CE">CE</form:option>
+                                <form:option value="ME">ME</form:option>
+                                <form:option value="EE">EE</form:option>
+                            </form:select>
+                        </div>
+                    </div>
+            </div>
+            <div class="modal-footer">
+<!--                    <button type="button" data-dismiss="modal" class="btn">Close</button>
+                        <button type="button" class="btn blue">Save</button>-->
+<!--                    <div class="form-actions">-->
+                        <button type="submit" class="btn blue"><i class="icon-ok"></i> Save</button>
+                        <button type="button" data-dismiss="modal" class="btn">Close</button><!--
+                    <!--</div>-->
+            </div>
+             </form:form>
+        </div>
+        <!-- END ADD NEW TEACHER MODAL -->
+
     </div>
 </div>

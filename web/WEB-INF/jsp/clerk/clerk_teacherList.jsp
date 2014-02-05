@@ -43,8 +43,9 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
         <!-- BEGIN PAGE LEVEL STYLES -->
         <link rel="stylesheet" type="text/css" href="assets/plugins/select2/select2_metro.css" />
         <link rel="stylesheet" href="assets/plugins/data-tables/DT_bootstrap.css" />
+        <link rel="stylesheet" type="text/css" href="assets/plugins/jquery-ui/jquery-ui-1.10.1.custom.min.css"/>
+	<link href="assets/plugins/bootstrap-modal/css/bootstrap-modal.css" rel="stylesheet" type="text/css"/>
         <!-- END PAGE LEVEL STYLES -->
-        
         <link rel="shortcut icon" href="favicon.ico" />
     </head>
     <!-- END HEAD -->
@@ -833,81 +834,81 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
                     <jsp:include page="page_header.jsp" />
                     <!-- END PAGE HEADER-->
                     <div id="dashboard">
-<!--                    <div id="dashboard">
-                         BEGIN DASHBOARD STATS 
-                        <div class="row-fluid">
-                            <div class="span3 responsive" data-tablet="span6" data-desktop="span3">
-                                <div class="dashboard-stat blue">
-                                    <div class="visual">
-                                        									<i class="icon-comments"></i>
-                                        <img src="assets/branch/ce.png" alt="ce"/>
-                                    </div>
-                                    <div class="details">
-                                        <div class="number">
-                                            1349
-                                        </div>
-                                        <div class="desc">                           
-                                            New Feedbacks
-                                        </div>
-                                    </div>
-                                    <a class="more" href="#">
-                                        View more <i class="m-icon-swapright m-icon-white"></i>
-                                    </a>                 
-                                </div>
-                            </div>
-                            <div class="span3 responsive" data-tablet="span6" data-desktop="span3">
-                                <div class="dashboard-stat green">
-                                    <div class="visual">
-                                        <i class="icon-shopping-cart"></i>
-                                        <img src="assets/branch/ec.png" alt="ec"/>
-                                    </div>
-                                    <div class="details">
-                                        <div class="number">549</div>
-                                        <div class="desc">New Orders</div>
-                                    </div>
-                                    <a class="more" href="#">
-                                        View more <i class="m-icon-swapright m-icon-white"></i>
-                                    </a>                 
-                                </div>
-                            </div>
-                            <div class="span3 responsive" data-tablet="span6  fix-offset" data-desktop="span3">
-                                <div class="dashboard-stat purple">
-                                    <div class="visual">
-                                        									<i class="icon-globe"></i>
-                                        <img src="assets/branch/me.png" alt="me"/>
-                                    </div>
-                                    <div class="details">
-                                        <div class="number">+89%</div>
-                                        <div class="desc">Brand Popularity</div>
-                                    </div>
-                                    <a class="more" href="#">
-                                        View more <i class="m-icon-swapright m-icon-white"></i>
-                                    </a>                 
-                                </div>
-                            </div>
-                            <div class="span3 responsive" data-tablet="span6" data-desktop="span3">
-                                <div class="dashboard-stat yellow">
-                                    <div class="visual">
-                                        									<i class="icon-bar-chart"></i>
-                                        <img src="assets/branch/ee.png" alt="ee"/>
-                                    </div>
-                                    <div class="details">
-                                        <div class="number">12,5M$</div>
-                                        <div class="desc">Total Profit</div>
-                                    </div>
-                                    <a class="more" href="teacherList.htm">
-                                        View more <i class="m-icon-swapright m-icon-white"></i>
-                                    </a>                 
-                                </div>
-                            </div>
-                        </div>-->
-                       
+                        <!--                    <div id="dashboard">
+                                                 BEGIN DASHBOARD STATS 
+                                                <div class="row-fluid">
+                                                    <div class="span3 responsive" data-tablet="span6" data-desktop="span3">
+                                                        <div class="dashboard-stat blue">
+                                                            <div class="visual">
+                                                                                                                                        <i class="icon-comments"></i>
+                                                                <img src="assets/branch/ce.png" alt="ce"/>
+                                                            </div>
+                                                            <div class="details">
+                                                                <div class="number">
+                                                                    1349
+                                                                </div>
+                                                                <div class="desc">                           
+                                                                    New Feedbacks
+                                                                </div>
+                                                            </div>
+                                                            <a class="more" href="#">
+                                                                View more <i class="m-icon-swapright m-icon-white"></i>
+                                                            </a>                 
+                                                        </div>
+                                                    </div>
+                                                    <div class="span3 responsive" data-tablet="span6" data-desktop="span3">
+                                                        <div class="dashboard-stat green">
+                                                            <div class="visual">
+                                                                <i class="icon-shopping-cart"></i>
+                                                                <img src="assets/branch/ec.png" alt="ec"/>
+                                                            </div>
+                                                            <div class="details">
+                                                                <div class="number">549</div>
+                                                                <div class="desc">New Orders</div>
+                                                            </div>
+                                                            <a class="more" href="#">
+                                                                View more <i class="m-icon-swapright m-icon-white"></i>
+                                                            </a>                 
+                                                        </div>
+                                                    </div>
+                                                    <div class="span3 responsive" data-tablet="span6  fix-offset" data-desktop="span3">
+                                                        <div class="dashboard-stat purple">
+                                                            <div class="visual">
+                                                                                                                                        <i class="icon-globe"></i>
+                                                                <img src="assets/branch/me.png" alt="me"/>
+                                                            </div>
+                                                            <div class="details">
+                                                                <div class="number">+89%</div>
+                                                                <div class="desc">Brand Popularity</div>
+                                                            </div>
+                                                            <a class="more" href="#">
+                                                                View more <i class="m-icon-swapright m-icon-white"></i>
+                                                            </a>                 
+                                                        </div>
+                                                    </div>
+                                                    <div class="span3 responsive" data-tablet="span6" data-desktop="span3">
+                                                        <div class="dashboard-stat yellow">
+                                                            <div class="visual">
+                                                                                                                                        <i class="icon-bar-chart"></i>
+                                                                <img src="assets/branch/ee.png" alt="ee"/>
+                                                            </div>
+                                                            <div class="details">
+                                                                <div class="number">12,5M$</div>
+                                                                <div class="desc">Total Profit</div>
+                                                            </div>
+                                                            <a class="more" href="teacherList.htm">
+                                                                View more <i class="m-icon-swapright m-icon-white"></i>
+                                                            </a>                 
+                                                        </div>
+                                                    </div>
+                                                </div>-->
+
                         <!-- END DASHBOARD STATS -->
                         <div class="clearfix"></div>
                         <div id="teacherList">
                             <jsp:include page="../teacherList.jsp" />
                         </div>
-                            
+
                         <!--					<div class="row-fluid">
                                                                         <div class="span6">
                                                                                  BEGIN PORTLET
@@ -2028,6 +2029,8 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
             </div>
             <!-- END PAGE -->
         </div>
+
+        
         <!-- END CONTAINER -->
         <!-- BEGIN FOOTER -->
         <!--	<div class="footer">
@@ -2043,66 +2046,76 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
         <jsp:include page="../commons/footer.jsp" />
 
         <!-- END FOOTER -->
-<!-- BEGIN JAVASCRIPTS(Load javascripts at bottom, this will reduce page load time) -->
-	<!-- BEGIN CORE PLUGINS -->
-	<script src="assets/plugins/jquery-1.10.1.min.js" type="text/javascript"></script>
-	<script src="assets/plugins/jquery-migrate-1.2.1.min.js" type="text/javascript"></script>
-	<!-- IMPORTANT! Load jquery-ui-1.10.1.custom.min.js before bootstrap.min.js to fix bootstrap tooltip conflict with jquery ui tooltip -->
-	<script src="assets/plugins/jquery-ui/jquery-ui-1.10.1.custom.min.js" type="text/javascript"></script>      
-	<script src="assets/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
-	<!--[if lt IE 9]>
-	<script src="assets/plugins/excanvas.min.js"></script>
-	<script src="assets/plugins/respond.min.js"></script>  
-	<![endif]-->   
-	<script src="assets/plugins/jquery-slimscroll/jquery.slimscroll.min.js" type="text/javascript"></script>
-	<script src="assets/plugins/jquery.blockui.min.js" type="text/javascript"></script>  
-	<script src="assets/plugins/jquery.cookie.min.js" type="text/javascript"></script>
-	<script src="assets/plugins/uniform/jquery.uniform.min.js" type="text/javascript" ></script>
-	<!-- END CORE PLUGINS -->
-	<!-- BEGIN PAGE LEVEL PLUGINS -->
-	<script src="assets/plugins/jqvmap/jqvmap/jquery.vmap.js" type="text/javascript"></script>   
-	<script src="assets/plugins/jqvmap/jqvmap/maps/jquery.vmap.russia.js" type="text/javascript"></script>
-	<script src="assets/plugins/jqvmap/jqvmap/maps/jquery.vmap.world.js" type="text/javascript"></script>
-	<script src="assets/plugins/jqvmap/jqvmap/maps/jquery.vmap.europe.js" type="text/javascript"></script>
-	<script src="assets/plugins/jqvmap/jqvmap/maps/jquery.vmap.germany.js" type="text/javascript"></script>
-	<script src="assets/plugins/jqvmap/jqvmap/maps/jquery.vmap.usa.js" type="text/javascript"></script>
-	<script src="assets/plugins/jqvmap/jqvmap/data/jquery.vmap.sampledata.js" type="text/javascript"></script>  
-	<script src="assets/plugins/flot/jquery.flot.js" type="text/javascript"></script>
-	<script src="assets/plugins/flot/jquery.flot.resize.js" type="text/javascript"></script>
-	<script src="assets/plugins/jquery.pulsate.min.js" type="text/javascript"></script>
-	<script src="assets/plugins/bootstrap-daterangepicker/date.js" type="text/javascript"></script>
-	<script src="assets/plugins/bootstrap-daterangepicker/daterangepicker.js" type="text/javascript"></script>     
-	<script src="assets/plugins/gritter/js/jquery.gritter.js" type="text/javascript"></script>
-	<script src="assets/plugins/fullcalendar/fullcalendar/fullcalendar.min.js" type="text/javascript"></script>
-	<script src="assets/plugins/jquery-easy-pie-chart/jquery.easy-pie-chart.js" type="text/javascript"></script>
-	<script src="assets/plugins/jquery.sparkline.min.js" type="text/javascript"></script>  
-	<!-- END PAGE LEVEL PLUGINS -->
-	<!-- BEGIN PAGE LEVEL SCRIPTS -->
-	<script src="assets/scripts/app.js" type="text/javascript"></script>
-	<script src="assets/scripts/index.js" type="text/javascript"></script>        
-	<!-- END PAGE LEVEL SCRIPTS -->  
+        <!-- BEGIN JAVASCRIPTS(Load javascripts at bottom, this will reduce page load time) -->
+        <!-- BEGIN CORE PLUGINS -->
+        <script src="assets/plugins/jquery-1.10.1.min.js" type="text/javascript"></script>
+        <script src="assets/plugins/jquery-migrate-1.2.1.min.js" type="text/javascript"></script>
+        <!-- IMPORTANT! Load jquery-ui-1.10.1.custom.min.js before bootstrap.min.js to fix bootstrap tooltip conflict with jquery ui tooltip -->
+        <script src="assets/plugins/jquery-ui/jquery-ui-1.10.1.custom.min.js" type="text/javascript"></script>      
+        <script src="assets/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+        <!--[if lt IE 9]>
+        <script src="assets/plugins/excanvas.min.js"></script>
+        <script src="assets/plugins/respond.min.js"></script>  
+        <![endif]-->   
+        <script src="assets/plugins/jquery-slimscroll/jquery.slimscroll.min.js" type="text/javascript"></script>
+        <script src="assets/plugins/jquery.blockui.min.js" type="text/javascript"></script>  
+        <script src="assets/plugins/jquery.cookie.min.js" type="text/javascript"></script>
+        <script src="assets/plugins/uniform/jquery.uniform.min.js" type="text/javascript" ></script>
+        <!-- END CORE PLUGINS -->
         <!-- BEGIN PAGE LEVEL PLUGINS -->
-	<script type="text/javascript" src="assets/plugins/select2/select2.min.js"></script>
-	<script type="text/javascript" src="assets/plugins/data-tables/jquery.dataTables.js"></script>
-	<script type="text/javascript" src="assets/plugins/data-tables/DT_bootstrap.js"></script>
+        <script src="assets/plugins/jqvmap/jqvmap/jquery.vmap.js" type="text/javascript"></script>   
+        <script src="assets/plugins/jqvmap/jqvmap/maps/jquery.vmap.russia.js" type="text/javascript"></script>
+        <script src="assets/plugins/jqvmap/jqvmap/maps/jquery.vmap.world.js" type="text/javascript"></script>
+        <script src="assets/plugins/jqvmap/jqvmap/maps/jquery.vmap.europe.js" type="text/javascript"></script>
+        <script src="assets/plugins/jqvmap/jqvmap/maps/jquery.vmap.germany.js" type="text/javascript"></script>
+        <script src="assets/plugins/jqvmap/jqvmap/maps/jquery.vmap.usa.js" type="text/javascript"></script>
+        <script src="assets/plugins/jqvmap/jqvmap/data/jquery.vmap.sampledata.js" type="text/javascript"></script>  
+        <script src="assets/plugins/flot/jquery.flot.js" type="text/javascript"></script>
+        <script src="assets/plugins/flot/jquery.flot.resize.js" type="text/javascript"></script>
+        <script src="assets/plugins/jquery.pulsate.min.js" type="text/javascript"></script>
+        <script src="assets/plugins/bootstrap-daterangepicker/date.js" type="text/javascript"></script>
+        <script src="assets/plugins/bootstrap-daterangepicker/daterangepicker.js" type="text/javascript"></script>     
+        <script src="assets/plugins/gritter/js/jquery.gritter.js" type="text/javascript"></script>
+        <script src="assets/plugins/fullcalendar/fullcalendar/fullcalendar.min.js" type="text/javascript"></script>
+        <script src="assets/plugins/jquery-easy-pie-chart/jquery.easy-pie-chart.js" type="text/javascript"></script>
+        <script src="assets/plugins/jquery.sparkline.min.js" type="text/javascript"></script>  
+        <!-- END PAGE LEVEL PLUGINS -->
+        <!-- BEGIN PAGE LEVEL SCRIPTS -->
+        <script src="assets/scripts/app.js" type="text/javascript"></script>
+        <script src="assets/scripts/index.js" type="text/javascript"></script>        
+        <!-- END PAGE LEVEL SCRIPTS -->  
+        <!-- BEGIN PAGE LEVEL PLUGINS -->
+        <script src="assets/plugins/bootstrap-modal/js/bootstrap-modal.js" type="text/javascript" ></script>
+	<script src="assets/plugins/bootstrap-modal/js/bootstrap-modalmanager.js" type="text/javascript" ></script>
+        <script type="text/javascript" src="assets/plugins/select2/select2.min.js"></script>
+        <script type="text/javascript" src="assets/plugins/data-tables/jquery.dataTables.js"></script>
+        <script type="text/javascript" src="assets/plugins/data-tables/DT_bootstrap.js"></script>
+        <!-- END PAGE LEVEL PLUGINS -->
+        <!-- BEGIN PAGE LEVEL SCRIPTS -->
+        <script src="assets/scripts/table-managed.js"></script> 
+        <script src="assets/scripts/ui-modals.js"></script>     
+       <!-- BEGIN PAGE LEVEL PLUGINS -->   
+	
 	<!-- END PAGE LEVEL PLUGINS -->
 	<!-- BEGIN PAGE LEVEL SCRIPTS -->
-	<script src="assets/scripts/table-editable.js"></script>    
-	<script>
-		jQuery(document).ready(function() {    
-		   App.init(); // initlayout and core plugins
-		   Index.init();
-		   Index.initJQVMAP(); // init index page's custom scripts
-		   Index.initCalendar(); // init index page's custom scripts
-		   Index.initCharts(); // init index page's custom scripts
-		   Index.initChat();
-		   Index.initMiniCharts();
-		   Index.initDashboardDaterange();
-		   Index.initIntro();
-                   TableEditable.init();
-		});
-	</script>
-	<!-- END JAVASCRIPTS -->
+	<!-- END PAGE LEVEL SCRIPTS --> 
+        <script>
+            jQuery(document).ready(function() {
+                App.init(); // initlayout and core plugins
+                Index.init();
+                Index.initJQVMAP(); // init index page's custom scripts
+                Index.initCalendar(); // init index page's custom scripts
+                Index.initCharts(); // init index page's custom scripts
+                Index.initChat();
+                Index.initMiniCharts();
+                Index.initDashboardDaterange();
+                Index.initIntro();
+                TableEditable.init();
+                TableManaged.init();
+                UIModals.init();
+            });
+        </script>
+        <!-- END JAVASCRIPTS -->
     </body>
     <!-- END BODY -->
 </html>

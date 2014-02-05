@@ -7,11 +7,14 @@ package com.timetablemgmt.dao.impl;
 import com.timetablemgmt.dao.TeacherDAO;
 import com.timetablemgmt.domainobjects.Branch;
 import com.timetablemgmt.domainobjects.Teacher;
+import com.timetablemgmt.hibernateutils.BaseHibernateDAO;
+import com.timetablemgmt.hibernateutils.BasicHiberDAO;
 import static com.timetablemgmt.hibernateutils.HibernateUtil.getSessionFactory;
-import java.util.ArrayList;
+import java.io.Serializable;
 import java.util.List;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
+import org.hibernate.SessionFactory;
 import org.springframework.stereotype.Repository;
 
 /**
@@ -19,8 +22,9 @@ import org.springframework.stereotype.Repository;
  * @author mayur
  */
 @Repository
-public class TeacherDAOImpl implements TeacherDAO{
+public class TeacherDAOImpl extends BaseHibernateDAO<Teacher, Long>implements TeacherDAO{
     Session session = getSessionFactory().openSession();
+    
     List<Teacher> teachers;
     
     @Override
@@ -39,6 +43,11 @@ public class TeacherDAOImpl implements TeacherDAO{
         }catch(HibernateException ex){
         }
         return teachers;
+    }
+
+    @Override
+    public Teacher saveOrUpdateTeacher(Teacher teacher) {
+         return persist(teacher);
     }
     
     

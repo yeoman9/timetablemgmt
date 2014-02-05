@@ -5,8 +5,10 @@
 package com.timetablemgmt.domainobjects;
 
 import java.io.Serializable;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -21,13 +23,15 @@ import javax.persistence.Table;
 @Table(name = "TEACHER")
 public class Teacher implements Serializable {
     @Id
+    @GeneratedValue
+    @Column(name = "ID")
     private Long id;
     
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "BRANCH_ID")
     private Branch branchId;
     
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "LOGIN_ID")
     private Login loginId;
     
@@ -78,6 +82,4 @@ public class Teacher implements Serializable {
     public void setShortName(String shortName) {
         this.shortName = shortName;
     }
-
-    
 }

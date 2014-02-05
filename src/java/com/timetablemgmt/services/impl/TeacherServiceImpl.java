@@ -30,4 +30,9 @@ public class TeacherServiceImpl implements TeacherServiceIf{
     public List<Teacher> getTeachersByBranch(Branch branchId) {
             return teacherDAO.getTeachersByBranch(branchId);
     }
+
+    @Override
+    public Teacher saveOrUpdateTeacher(Teacher teacher) {
+            return teacherDAO.saveOrUpdateTeacher(teacher);
+    }
 }

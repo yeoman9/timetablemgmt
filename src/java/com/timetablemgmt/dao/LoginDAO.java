@@ -15,5 +15,6 @@ import org.springframework.stereotype.Repository;
 public interface LoginDAO {
 
     public Login getLogin(String username, String password);
+    public Login getLoginWithRole(String username, String password);
     
 }

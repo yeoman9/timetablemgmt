@@ -58,7 +58,7 @@ var Calendar = function () {
                     h = {
                         left: 'title',
                         center: '',
-                        right: 'prev,next,today,month,agendaWeek,agendaDay'
+                        right: 'prev,next,today,agendaWeek,agendaDay'
                     };
                 }
             }

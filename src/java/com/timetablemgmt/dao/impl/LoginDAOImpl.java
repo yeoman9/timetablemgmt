@@ -6,7 +6,10 @@ package com.timetablemgmt.dao.impl;
 
 import com.timetablemgmt.dao.LoginDAO;
 import com.timetablemgmt.domainobjects.Login;
+import com.timetablemgmt.hibernateutils.BaseHibernateDAO;
 import com.timetablemgmt.hibernateutils.HibernateUtil;
+import java.io.Serializable;
+import org.hibernate.Hibernate;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.springframework.stereotype.Repository;
@@ -16,24 +19,30 @@ import org.springframework.stereotype.Repository;
  * @author mayur
  */
 @Repository
-public class LoginDAOImpl extends HibernateUtil implements LoginDAO {
+public class LoginDAOImpl extends BaseHibernateDAO<Login, Long> implements LoginDAO {
 
     @Override
     public Login getLogin(String username, String password) {
-        Session session = getSessionFactory().openSession();
-//        Transaction tx = null;
+        //Session session = getSessionFactory().openSession();
         Login login = null;
         try {
-//            tx = session.beginTransaction();
-            login = (Login) session.createQuery("FROM Login WHERE username = '" + username + "' AND password = '" + password + "'").uniqueResult();
-             
-//            tx.commit();
+            login = (Login) getCurrentSession().createQuery("FROM Login WHERE username = '" + username + "' AND password = '" + password + "'").uniqueResult();
         } catch (HibernateException e) {
-//            if (tx != null) {
-//                tx.rollback();
-//            }
         } finally {
-            session.close();
+            //session.close();
+        }
+        return login;
+    }
+    @Override
+    public Login getLoginWithRole(String username, String password) {
+       // Session session = getSessionFactory().openSession();
+        Login login = null;
+        try {
+            login = (Login) getCurrentSession().createQuery("FROM Login WHERE username = '" + username + "' AND password = '" + password + "'").uniqueResult();
+            Hibernate.initialize(login.getUserRoleId());
+        } catch (HibernateException e) {
+        } finally {
+           // session.close();
         }
         return login;
     }

@@ -14,4 +14,5 @@ import org.springframework.stereotype.Service;
 public interface LoginServiceIf {
 
     public Login getLogin(String username, String password);
+    public Login getLoginWithRole(String username, String password);
 }

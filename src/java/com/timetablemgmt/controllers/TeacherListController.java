@@ -40,9 +40,12 @@ public class TeacherListController {
             branchId = branchServiceIf.getByID(id);
             teachers = teacherServiceIf.getTeachersByBranch(branchId);
         }
+        String active= "";
         System.out.println(teachers.get(0).getName());
         mav.addObject("teachers", teachers);
+        mav.addObject("newTeacher",new Teacher());
         mav.setViewName("clerk/clerk_teacherList");
+//        mav.setViewName("hod/create_timetable");
         return mav;
     }
 }

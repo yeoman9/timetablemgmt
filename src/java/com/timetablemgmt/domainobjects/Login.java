@@ -5,8 +5,10 @@
 package com.timetablemgmt.domainobjects;
 
 import java.io.Serializable;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
@@ -30,12 +32,12 @@ public class Login implements Serializable {
     private String password;
     @Column(name = "EMAIL")
     private String email;
-    @ManyToOne
+    @ManyToOne(/*fetch = FetchType.LAZY,*/ cascade = CascadeType.ALL)
     @JoinColumn(name = "ROLE_ID")
     private UserRole userRoleId;
     
     @Column(name = "STATUS")
-    private char status;
+    private String status;
     
 
     public Long getId() {
@@ -78,12 +80,12 @@ public class Login implements Serializable {
         this.userRoleId = userRoleId;
     }
 
-    public char getStatus() {
+    public String getStatus() {
         return status;
     }
 
-    public void setStatus(char status) {
+    public void setStatus(String status) {
         this.status = status;
     }
-    
+
 }

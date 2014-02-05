@@ -2092,7 +2092,7 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
             
                 $(".more").click(function() {
                     $("#branch_blocks").hide();
-                    window.location = "clerk_teacherList.htm?id=0";
+//                    window.location = "clerk_teacherList.htm?id=0";
                 });
                 
         </script>

@@ -5,9 +5,11 @@
 package com.timetablemgmt.controllers;
 
 import com.timetablemgmt.domainobjects.Login;
+import com.timetablemgmt.domainobjects.UserRole;
 import com.timetablemgmt.services.LoginServiceIf;
 import javax.servlet.http.HttpServletRequest;
 import org.apache.log4j.Logger;
+import org.hibernate.Hibernate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -37,7 +39,7 @@ public class LoginController {
         System.out.println("Role : "+login.getUserRoleId().getRoleName());
         return "clerk/home";
     }
-//    @ResponseBody
+    //@ResponseBody
     @RequestMapping("/LoginAuth.htm")
     public String loginAuth(@ModelAttribute(value = "loginAuth")Login login){
         System.out.println("name : ---"+login.getUsername());
@@ -49,9 +51,13 @@ public class LoginController {
 //        }
 //        c
 //        login1.getRole()
+        Login login1 = loginServiceIf.getLoginWithRole(login.getUsername(), login.getPassword());
         
-        
-        return "success";
+//        System.out.println("ROle : "+login1.getUserRoleId().getRoleName());
+                
+                
+//        return "success";
+        return "clerk/home";
     }
     
     
