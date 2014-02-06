@@ -21,7 +21,7 @@
                         New Feedbacks
                     </div>
                 </div>
-                <a class="more" href="clerk_teacherList.htm?id=0">
+                <a class="more" href="clerk_teacherList.htm?branch=CE">
                     View more <i class="m-icon-swapright m-icon-white"></i>
                 </a>                 
             </div>
@@ -36,7 +36,7 @@
                     <div class="number">549</div>
                     <div class="desc">New Orders</div>
                 </div>
-                <a class="more" href="clerk_teacherList.htm?id=EC">
+                <a class="more" href="clerk_teacherList.htm?branch=EC">
                     View more <i class="m-icon-swapright m-icon-white"></i>
                 </a>                 
             </div>
@@ -51,7 +51,7 @@
                     <div class="number">+89%</div>
                     <div class="desc">Brand Popularity</div>
                 </div>
-                <a class="more" href="clerk_teacherList.htm?id=ME">
+                <a class="more" href="clerk_teacherList.htm?branch=ME">
                     View more <i class="m-icon-swapright m-icon-white"></i>
                 </a>                 
             </div>
@@ -66,7 +66,7 @@
                     <div class="number">12,5M$</div>
                     <div class="desc">Total Profit</div>
                 </div>
-                <a class="more" href="clerk_teacherList.htm?id=EE">
+                <a class="more" href="clerk_teacherList.htm?branch=EE">
                     View more <i class="m-icon-swapright m-icon-white"></i>
                 </a>                 
             </div>

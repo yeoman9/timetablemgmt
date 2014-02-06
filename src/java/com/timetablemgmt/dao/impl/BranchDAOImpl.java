@@ -4,6 +4,8 @@
  */
 package com.timetablemgmt.dao.impl;
 
+import com.timetablemgmt.common.QueryCriteria;
+import com.timetablemgmt.common.QueryCriterion;
 import com.timetablemgmt.dao.BranchDAO;
 import com.timetablemgmt.domainobjects.Branch;
 import com.timetablemgmt.hibernateutils.BaseHibernateDAO;
@@ -19,7 +21,7 @@ import org.springframework.stereotype.Repository;
  * @author mayur
  */
 @Repository
-public class BranchDAOImpl implements BranchDAO{
+public class BranchDAOImpl extends BaseHibernateDAO<Branch, Long> implements BranchDAO{
     Session session = getSessionFactory().openSession();
     
     @Override
@@ -38,6 +40,14 @@ public class BranchDAOImpl implements BranchDAO{
     @Override
     public List<Branch> getAllBranches() {
         return session.createQuery("FROM Branch").list();
+    }
+
+    @Override
+    public Branch getByShortName(String shortName) {
+        QueryCriteria criteria = new QueryCriteria();
+        QueryCriterion criterion = QueryCriterion.createCriterion("shortName", shortName);
+        criteria.addQueryCriteria("shortName", criterion);
+        return findUniqueEntity(criteria, true);
     }
 
 }

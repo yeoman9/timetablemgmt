@@ -12,7 +12,9 @@ import java.util.List;
  * @author mayur
  */
 public interface BranchDAO {
-        
     public Branch getById(Long id);
+
+    public Branch getByShortName(String shortName);
+
     public List<Branch> getAllBranches();
 }

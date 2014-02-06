@@ -4,6 +4,8 @@
  */
 package com.timetablemgmt.dao.impl;
 
+import com.timetablemgmt.common.QueryCriteria;
+import com.timetablemgmt.common.QueryCriterion;
 import com.timetablemgmt.dao.TeacherDAO;
 import com.timetablemgmt.domainobjects.Branch;
 import com.timetablemgmt.domainobjects.Teacher;
@@ -38,11 +40,10 @@ public class TeacherDAOImpl extends BaseHibernateDAO<Teacher, Long>implements Te
 
     @Override
     public List<Teacher> getTeachersByBranch(Branch branchId) {
-        try{
-            teachers = session.createQuery("FROM Teacher WHERE branchId.id '" + branchId.getId() + "'").list();
-        }catch(HibernateException ex){
-        }
-        return teachers;
+        QueryCriteria criteria = new QueryCriteria();
+        QueryCriterion criterion = QueryCriterion.createCriterion("branchId.id", branchId.getId());
+        criteria.addQueryCriteria("branchId.id", criterion);
+        return findEntities(criteria,true).getResults();
     }
 
     @Override

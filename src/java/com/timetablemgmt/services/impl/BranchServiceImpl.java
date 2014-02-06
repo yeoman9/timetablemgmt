@@ -28,5 +28,10 @@ public class BranchServiceImpl implements BranchServiceIf{
     public List<Branch> getAllBranches() {
         return branchDAO.getAllBranches();
     }
+
+    @Override
+    public Branch getByShortName(String shortName) {
+        return branchDAO.getByShortName(shortName);
+    }
     
 }

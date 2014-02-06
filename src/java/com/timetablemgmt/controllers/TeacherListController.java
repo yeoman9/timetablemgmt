@@ -35,39 +35,28 @@ public class TeacherListController {
     Branch branchId;
     
     @RequestMapping("/clerk_teacherList.htm")
-    public ModelAndView getTeacherList(@RequestParam Long id,ModelAndView mav){
+    public ModelAndView getTeacherList(@RequestParam String branch,ModelAndView mav){
         System.out.println("into controller..");
         
         
-        if(id == 0){
+       if("ALL".equals(branch)){
             teachers = teacherServiceIf.getAllTeachers();
+                    
         }else{
-            branchId = branchServiceIf.getByID(id);
-            teachers = teacherServiceIf.getTeachersByBranch(branchId);
+//            branchId = branchServiceIf.getByShortName(branch);
+            teachers = teacherServiceIf.getTeachersByBranch(branchServiceIf.getByShortName(branch));
         }
+//        String active= "";
+//        System.out.println(teachers.get(0).getName());
         String active= "";
-        System.out.println(teachers.get(0).getName());
+//        System.out.println(teachers.get(0).getName());
         
         branches = branchServiceIf.getAllBranches();
         branchShortNames = new ArrayList<>();
-        for(Branch branch : branches){
-            branchShortNames.add(branch.getShortName());
-        }
         
-//
-//        
-//        Branch branch = new Branch();
-//        branch.setId(1l);
-//        
-//        UserRole userRole = new UserRole();
-//        userRole.setId(1l);
-//
-//        Login login = new Login();
-//        login.setUserRoleId(userRole);
-//        
-//        Teacher teacher = new Teacher();
-//        teacher.setLoginId(login);
-//        teacher.setBranchId(branch);
+        for(Branch singleBranch : branches){
+            branchShortNames.add(singleBranch.getShortName());
+        }
         
         mav.addObject("teachers", teachers);
         mav.addObject("newTeacher",new Teacher());
@@ -75,6 +64,5 @@ public class TeacherListController {
         
         mav.setViewName("clerk/clerk_teacherList");
 //        mav.setViewName("hod/create_timetable");
-        return mav;
-    }
+        return mav;    }
 }

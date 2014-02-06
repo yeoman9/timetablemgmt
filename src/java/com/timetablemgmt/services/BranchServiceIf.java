@@ -14,4 +14,6 @@ import java.util.List;
 public interface BranchServiceIf {
     public Branch getByID(Long id);
     public List<Branch> getAllBranches();
+    public Branch getByShortName(String shortName);
+
 }
