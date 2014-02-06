@@ -5,20 +5,17 @@
 package com.timetablemgmt.controllers;
 
 import com.timetablemgmt.domainobjects.Branch;
-import com.timetablemgmt.domainobjects.Login;
 import com.timetablemgmt.domainobjects.Teacher;
-import com.timetablemgmt.domainobjects.UserRole;
-import com.timetablemgmt.hibernateutils.HibernateUtil;
+import com.timetablemgmt.services.BranchServiceIf;
 import com.timetablemgmt.services.TeacherServiceIf;
 import com.timetablemgmt.services.UserRoleServiceIf;
 import java.util.List;
-import org.hibernate.Session;
-import org.hibernate.Transaction;
-import org.hibernate.validator.internal.constraintvalidators.SizeValidatorForMap;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 /**
@@ -31,12 +28,20 @@ public class AddOrUpdateTeacher {
     @Autowired
     private TeacherServiceIf teacherServiceIf= null;
     
+    @Autowired
+    private BranchServiceIf branchServiceIf= null;
+    
+    @Autowired
+    private UserRoleServiceIf userRoleServiceIf = null;
+    
     private List<Teacher> teachers;
     @RequestMapping("/addTeacher.htm")
-    public ModelAndView addNewTeacher(@ModelAttribute(value = "newTeacher") Teacher teacher){
+    public ModelAndView addNewTeacher(@ModelAttribute(value = "newTeacher") Teacher teacher,@RequestParam ("selectedBranch") String branchShortName){
         ModelAndView modelAndView = new ModelAndView();
+        teacher.setBranchId(branchServiceIf.getByShortName(branchShortName));
+        teacher.getLoginId().setUserRoleId(userRoleServiceIf.getByID(4l));
         teacherServiceIf.saveOrUpdateTeacher(teacher);
-        teachers = teacherServiceIf.getAllTeachers();
+        teachers = teacherServiceIf.getTeachersByBranch(branchServiceIf.getByShortName(branchShortName));
         modelAndView.addObject("teachers", teachers);
         modelAndView.addObject("newTeacher",new Teacher());
         modelAndView.setViewName("clerk/clerk_teacherList");

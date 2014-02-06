@@ -61,7 +61,7 @@ public class TeacherListController {
         mav.addObject("teachers", teachers);
         mav.addObject("newTeacher",new Teacher());
         mav.addObject("branches",branchShortNames);
-        
+        mav.addObject("branchShortName",branch);
         mav.setViewName("clerk/clerk_teacherList");
 //        mav.setViewName("hod/create_timetable");
         return mav;    }
