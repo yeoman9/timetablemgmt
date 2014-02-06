@@ -5,6 +5,7 @@
 package com.timetablemgmt.services;
 
 import com.timetablemgmt.domainobjects.Branch;
+import java.util.List;
 
 /**
  *
@@ -12,4 +13,5 @@ import com.timetablemgmt.domainobjects.Branch;
  */
 public interface BranchServiceIf {
     public Branch getByID(Long id);
+    public List<Branch> getAllBranches();
 }

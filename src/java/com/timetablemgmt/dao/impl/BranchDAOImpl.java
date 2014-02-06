@@ -9,6 +9,7 @@ import com.timetablemgmt.domainobjects.Branch;
 import com.timetablemgmt.hibernateutils.BaseHibernateDAO;
 import static com.timetablemgmt.hibernateutils.HibernateUtil.getSessionFactory;
 import java.io.Serializable;
+import java.util.List;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.springframework.stereotype.Repository;
@@ -32,6 +33,11 @@ public class BranchDAOImpl implements BranchDAO{
             session.close();
         }
         return null;
+    }
+
+    @Override
+    public List<Branch> getAllBranches() {
+        return session.createQuery("FROM Branch").list();
     }
 
 }

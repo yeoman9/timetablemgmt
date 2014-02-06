@@ -5,6 +5,7 @@
 package com.timetablemgmt.dao;
 
 import com.timetablemgmt.domainobjects.Branch;
+import java.util.List;
 
 /**
  *
@@ -13,5 +14,5 @@ import com.timetablemgmt.domainobjects.Branch;
 public interface BranchDAO {
         
     public Branch getById(Long id);
-
+    public List<Branch> getAllBranches();
 }

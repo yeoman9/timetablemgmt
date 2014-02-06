@@ -205,6 +205,7 @@
 
         <script src="assets/notyPlugin/jquery.noty.js" type="text/javascript" ></script>
         <script src="assets/notyPlugin/top.js" type="text/javascript" ></script>
+        <script src="assets/notyPlugin/topCenter.js" type="text/javascript" ></script>
         <script src="assets/notyPlugin/default.js" type="text/javascript" ></script>
 
 
@@ -212,11 +213,11 @@
 
 
         <script>
-    jQuery(document).ready(function() {
-        App.init();
-        Login.init();
+                            jQuery(document).ready(function() {
+                                App.init();
+                                Login.init();
 
-    });
+                            });
         </script>
 
         <script>
@@ -228,13 +229,13 @@
 
             function loginCheck() {
                 if ($('#username').val().length === 0 && $('#password').val().length === 0) {
-                    generateNoty('top', 800, 'error', "UserName and password can not be blank");
+                    generateNoty('topCenter', 800, 'error', "UserName and password can not be blank");
                 }
                 else if ($('#password').val().length === 0) {
-                    generateNoty('top', 800, 'error', "password can not be blank");
+                    generateNoty('topCenter', 800, 'error', "password can not be blank");
                 }
                 else if ($('#username').val().length === 0) {
-                    generateNoty('top', 800, 'error', "UserName can not be blank");
+                    generateNoty('topCenter', 800, 'error', "UserName can not be blank");
                 }
                 else {
 //                    var form = document.getElementsById("form-login");
