@@ -38,12 +38,14 @@ public class AddOrUpdateTeacher {
     @RequestMapping("/addTeacher.htm")
     public ModelAndView addNewTeacher(@ModelAttribute(value = "newTeacher") Teacher teacher,@RequestParam ("selectedBranch") String branchShortName){
         ModelAndView modelAndView = new ModelAndView();
-        teacher.setBranchId(branchServiceIf.getByShortName(branchShortName));
+        String addInBranch = teacher.getBranchId().getShortName();
+        teacher.setBranchId(branchServiceIf.getByShortName(addInBranch));
         teacher.getLoginId().setUserRoleId(userRoleServiceIf.getByID(4l));
         teacherServiceIf.saveOrUpdateTeacher(teacher);
         teachers = teacherServiceIf.getTeachersByBranch(branchServiceIf.getByShortName(branchShortName));
         modelAndView.addObject("teachers", teachers);
         modelAndView.addObject("newTeacher",new Teacher());
+        modelAndView.addObject("branchShortName",branchShortName);
         modelAndView.setViewName("clerk/clerk_teacherList");
         
         return modelAndView;

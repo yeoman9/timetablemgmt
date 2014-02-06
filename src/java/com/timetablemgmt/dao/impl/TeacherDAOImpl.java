@@ -25,17 +25,13 @@ import org.springframework.stereotype.Repository;
  */
 @Repository
 public class TeacherDAOImpl extends BaseHibernateDAO<Teacher, Long>implements TeacherDAO{
-    Session session = getSessionFactory().openSession();
+//    Session session = getSessionFactory().openSession();
     
     List<Teacher> teachers;
     
     @Override
     public List<Teacher> getAllTeachers() {
-        try{
-            teachers = session.createQuery("FROM Teacher").list();
-        }catch(HibernateException ex){
-        }
-        return teachers;
+        return getCurrentSession().createQuery("FROM Teacher").list();
     }
 
     @Override

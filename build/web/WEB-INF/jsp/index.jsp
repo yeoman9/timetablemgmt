@@ -222,11 +222,16 @@
 
         <script>
             $(document).ready(function() {
+
                 $("#loginClick").click(function() {
                     loginCheck();
-                })
+                    
+                    clearContents();
+                });
+                if ("${error}" === "true") {
+                    generateNoty('topCenter', 1000, 'error', "UserName and password does not match");
+                }
             });
-
             function loginCheck() {
                 if ($('#username').val().length === 0 && $('#password').val().length === 0) {
                     generateNoty('topCenter', 800, 'error', "UserName and password can not be blank");

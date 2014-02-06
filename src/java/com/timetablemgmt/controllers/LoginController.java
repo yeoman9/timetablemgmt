@@ -39,6 +39,7 @@ public class LoginController {
     
     @RequestMapping("/LoginAuth.htm")
     public ModelAndView loginAuth(@ModelAttribute(value = "loginAuth")Login login){
+        System.out.println("inside cooooool");
         Login loggedInUser = loginServiceIf.getLoginWithRole(login.getUsername(), login.getPassword());
         ModelAndView modelAndView = new ModelAndView();
         if(loggedInUser!=null){
@@ -46,6 +47,7 @@ public class LoginController {
             modelAndView.setViewName("clerk/home");
         }
         else{
+            modelAndView.addObject("error","true");
             modelAndView.setViewName("index");
         }
             return modelAndView;
