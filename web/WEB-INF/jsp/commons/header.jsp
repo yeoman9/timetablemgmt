@@ -219,7 +219,7 @@
 					<li class="dropdown user">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
 						<img alt="" src="assets/img/avatar1_small.jpg" />
-						<span class="username">${loggedInUserName}</span>
+						<span class="username">${sessionScope.loggedInUser.username}</span>
 						<i class="icon-angle-down"></i>
 						</a>
 						<ul class="dropdown-menu">
@@ -229,7 +229,7 @@
 							<li><a href="#"><i class="icon-tasks"></i> My Tasks</a></li>
 							<li class="divider"></li>
 							<li><a href="extra_lock.html"><i class="icon-lock"></i> Lock Screen</a></li>-->
-							<li><a href="login.html"><i class="icon-key"></i> Log Out</a></li>
+							<li><a href="logout.htm"><i class="icon-key"></i> Log Out</a></li>
 						</ul>
 					</li>
 					<!-- END USER LOGIN DROPDOWN -->
