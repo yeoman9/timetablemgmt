@@ -20,7 +20,8 @@
     
     <context:component-scan base-package="com.timetablemgmt"></context:component-scan>
     <mvc:annotation-driven></mvc:annotation-driven>
-    
+    <!--<context:annotation-config/>-->
+    <!--<context:property-placeholder location="Props/homePage.properties"/>-->
 <!--    <tx:annotation-driven transaction-manager="txManager"></tx:annotation-driven>
     
 

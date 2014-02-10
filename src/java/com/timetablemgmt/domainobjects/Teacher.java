@@ -41,7 +41,19 @@ public class Teacher implements Serializable {
     @Column(name = "SHORT_NAME")
     private String shortName;
     
-    
+    @Column(name = "COORDINATOR",nullable = false, columnDefinition = "boolean default false")
+    private Boolean coOrdinator;
+
+    @Column(name = "HOD",nullable = false, columnDefinition = "boolean default false")
+    private Boolean hod;
+
+    public Boolean isCoOrdinator() {
+        return coOrdinator;
+    }
+
+    public void setCoOrdinator(Boolean coOrdinator) {
+        this.coOrdinator = coOrdinator;
+    }
 
     public Long getId() {
         return id;
@@ -82,4 +94,13 @@ public class Teacher implements Serializable {
     public void setShortName(String shortName) {
         this.shortName = shortName;
     }
+
+    public Boolean isHod() {
+        return hod;
+    }
+
+    public void setHod(Boolean hod) {
+        this.hod = hod;
+    }
+    
 }

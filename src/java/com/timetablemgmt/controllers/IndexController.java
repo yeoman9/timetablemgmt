@@ -8,7 +8,10 @@ import com.timetablemgmt.domainobjects.Branch;
 import com.timetablemgmt.domainobjects.Login;
 import com.timetablemgmt.domainobjects.UserRole;
 import com.timetablemgmt.hibernateutils.HibernateUtil;
+import com.timetablemgmt.util.Util;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
@@ -19,7 +22,6 @@ import org.springframework.web.servlet.ModelAndView;
  */
 @Controller
 public class IndexController {
-
     @RequestMapping("/index.htm")
     public ModelAndView indexHandler(HttpSession session, ModelAndView mav) {
         if (session.getAttribute("loggedInUser") == null) {
@@ -29,10 +31,8 @@ public class IndexController {
             return mav;
         } else {
             Login loggedInUser = (Login)session.getAttribute("loggedInUser");
-            loggedInUser.getUserRoleId().getRoleName();
-            
-            mav.setViewName("clerk/home");
-            session.getAttribute("loggedInUser");
+            String userRole = loggedInUser.getUserRoleId().getRoleName();
+            mav.setViewName(Util.getHomePageMappingFor(userRole));
             return mav;
         }
     }

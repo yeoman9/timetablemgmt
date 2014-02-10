@@ -24,45 +24,43 @@ import org.springframework.web.servlet.ModelAndView;
  */
 @Controller
 public class TeacherListController {
+
     @Autowired
     private TeacherServiceIf teacherServiceIf = null;
     @Autowired
     private BranchServiceIf branchServiceIf = null;
-    
     private List<Teacher> teachers;
     private List<Branch> branches;
     private List<String> branchShortNames;
     Branch branchId;
-    
+
     @RequestMapping("/clerk_teacherList.htm")
-    public ModelAndView getTeacherList(@RequestParam String branch,ModelAndView mav){
+    public ModelAndView getTeacherList(@RequestParam String branch, ModelAndView mav) {
         System.out.println("into controller..");
-        
-        
-       if("ALL".equals(branch)){
+
+
+        if ("ALL".equals(branch)) {
             teachers = teacherServiceIf.getAllTeachers();
-                    
-        }else{
-//            branchId = branchServiceIf.getByShortName(branch);
-            teachers = teacherServiceIf.getTeachersByBranch(branchServiceIf.getByShortName(branch));
+
+        } else {
+            branchId = branchServiceIf.getByShortName(branch);
+            if (branchId != null) {
+                teachers = teacherServiceIf.getTeachersByBranch(branchId);
+            }
         }
-//        String active= "";
-//        System.out.println(teachers.get(0).getName());
-        String active= "";
-//        System.out.println(teachers.get(0).getName());
-        
+
         branches = branchServiceIf.getAllBranches();
         branchShortNames = new ArrayList<>();
-        
-        for(Branch singleBranch : branches){
+
+        for (Branch singleBranch : branches) {
             branchShortNames.add(singleBranch.getShortName());
         }
-        
+
         mav.addObject("teachers", teachers);
-        mav.addObject("newTeacher",new Teacher());
-        mav.addObject("branches",branchShortNames);
-        mav.addObject("branchShortName",branch);
+        mav.addObject("newTeacher", new Teacher());
+        mav.addObject("branches", branchShortNames);
+        mav.addObject("branchShortName", branch);
         mav.setViewName("clerk/clerk_teacherList");
-//        mav.setViewName("hod/create_timetable");
-        return mav;    }
+        return mav;
+    }
 }

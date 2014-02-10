@@ -15,5 +15,9 @@
     <mapping class="com.timetablemgmt.domainobjects.Login"></mapping>
     <mapping class="com.timetablemgmt.domainobjects.Branch"></mapping>
     <mapping class="com.timetablemgmt.domainobjects.Teacher"></mapping>
+    <mapping class="com.timetablemgmt.domainobjects.Semester"></mapping>
+    <mapping class="com.timetablemgmt.domainobjects.Subject"></mapping>
+    <mapping class="com.timetablemgmt.domainobjects.TimeSlot"></mapping>
+    <mapping class="com.timetablemgmt.domainobjects.TeacherSchedule"></mapping>
   </session-factory>
 </hibernate-configuration>
