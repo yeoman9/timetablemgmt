@@ -26,7 +26,7 @@ public class Branch implements Serializable {
     private String name;
     @Column(name = "SHORT_NAME")
     private String shortName;
-
+    
     public Long getId() {
         return id;
     }
@@ -50,6 +50,6 @@ public class Branch implements Serializable {
     public void setShortName(String shortName) {
         this.shortName = shortName;
     }
-    
+
     
 }

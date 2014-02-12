@@ -29,6 +29,7 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
 	<link href="assets/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
 	<link href="assets/css/style-metro.css" rel="stylesheet" type="text/css"/>
 	<link href="assets/css/style.css" rel="stylesheet" type="text/css"/>
+	<link href="assets/css/style-ttmgmt.css" rel="stylesheet" type="text/css"/>
 	<link href="assets/css/style-responsive.css" rel="stylesheet" type="text/css"/>
 	<link href="assets/css/themes/default.css" rel="stylesheet" type="text/css" id="style_color"/>
 	<link href="assets/plugins/uniform/css/uniform.default.css" rel="stylesheet" type="text/css"/>

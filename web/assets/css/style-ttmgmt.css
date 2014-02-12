@@ -1,0 +1,23 @@
+/* 
+    Document   : style-ttmgmt
+    Created on : 11 Feb, 2014, 11:28:48 AM
+    Author     : mayur
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+@import url(../fonts/font.css);
+.branch-text{
+font-family: cooperBlackStd;
+font-weight: bold;
+color: white;
+width: auto;
+height: auto;
+padding-top: 35px;
+font-size: 40px;
+text-shadow: 4px 2px 10px black;
+}
+.branch-details{
+    
+    margin-top: -80px !important ;
+}

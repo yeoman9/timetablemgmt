@@ -29,7 +29,6 @@ public class TeacherListController {
     private TeacherServiceIf teacherServiceIf = null;
     @Autowired
     private BranchServiceIf branchServiceIf = null;
-    private List<Teacher> teachers;
     private List<Branch> branches;
     private List<String> branchShortNames;
     Branch branchId;
@@ -38,7 +37,7 @@ public class TeacherListController {
     public ModelAndView getTeacherList(@RequestParam String branch, ModelAndView mav) {
         System.out.println("into controller..");
 
-
+        List<Teacher> teachers = null;
         if ("ALL".equals(branch)) {
             teachers = teacherServiceIf.getAllTeachers();
 
