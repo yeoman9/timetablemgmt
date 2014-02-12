@@ -4,9 +4,12 @@
  */
 package com.timetablemgmt.controllers;
 
+import com.timetablemgmt.domainobjects.Branch;
 import com.timetablemgmt.domainobjects.Login;
+import com.timetablemgmt.services.BranchServiceIf;
 import com.timetablemgmt.services.LoginServiceIf;
 import com.timetablemgmt.util.Util;
+import java.util.List;
 import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -25,6 +28,10 @@ public class LoginController {
     @Autowired
     private LoginServiceIf loginServiceIf = null;
 
+    @Autowired
+    private BranchServiceIf branchServiceIf = null;
+    List<Branch> branches = null;
+    
     @RequestMapping("/LoginAuth.htm")
     public ModelAndView loginAuth(@ModelAttribute(value = "loginAuth") Login login, HttpSession session, ModelAndView modelAndView) {
         if (session.getAttribute("loggedInUser") == null) {
@@ -32,6 +39,10 @@ public class LoginController {
             if (loggedInUser != null) {
                 session.setAttribute("loggedInUser", loggedInUser);
                 String userRole = loggedInUser.getUserRoleId().getRoleName();
+                if(userRole=="ROLE_CLERK"){
+                    branches=branchServiceIf.getAllBranches();
+                    modelAndView.addObject("branches", branches);
+                }
                 modelAndView.setViewName(Util.getHomePageMappingFor(userRole));
             } else {
                 modelAndView.addObject("loginAuth", new Login());
