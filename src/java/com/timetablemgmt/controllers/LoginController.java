@@ -6,6 +6,7 @@ package com.timetablemgmt.controllers;
 
 import com.timetablemgmt.domainobjects.Login;
 import com.timetablemgmt.services.LoginServiceIf;
+import com.timetablemgmt.util.Util;
 import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -30,7 +31,8 @@ public class LoginController {
             Login loggedInUser = loginServiceIf.getLoginWithRole(login.getUsername(), login.getPassword());
             if (loggedInUser != null) {
                 session.setAttribute("loggedInUser", loggedInUser);
-                modelAndView.setViewName("clerk/home");
+                String userRole = loggedInUser.getUserRoleId().getRoleName();
+                modelAndView.setViewName(Util.getHomePageMappingFor(userRole));
             } else {
                 modelAndView.addObject("loginAuth", new Login());
                 modelAndView.addObject("error", "true");
@@ -38,8 +40,9 @@ public class LoginController {
             }
             return modelAndView;
         } else {
-            modelAndView.addObject("loginAuth", new Login());
-            modelAndView.setViewName("index");
+            Login loggedInUser = (Login)session.getAttribute("loggedInUser");
+            String userRole = loggedInUser.getUserRoleId().getRoleName();
+            modelAndView.setViewName(Util.getHomePageMappingFor(userRole));
             return modelAndView;
         }
     }

@@ -25,4 +25,10 @@ public class Util {
         return homePageMapping.get(userRole);
     }
     
+//    public static Map<String,Object> getObjectsForThisPage(String pageName){
+//        Map<String,Object> objects = new HashMap<>();
+//        objects.put("","");
+//        return objects;
+//    }
+    
 }

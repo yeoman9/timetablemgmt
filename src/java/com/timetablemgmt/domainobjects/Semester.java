@@ -26,9 +26,6 @@ public class Semester implements Serializable {
     @Column(name = "ID")
     private Long id;
     
-    @Column(name = "SEMESTER_ID")
-    private int  semesterId;
-    
     @Column(name = "DIVISION")
     private int  division;
 
@@ -38,14 +35,6 @@ public class Semester implements Serializable {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public int getSemesterId() {
-        return semesterId;
-    }
-
-    public void setSemesterId(int semesterId) {
-        this.semesterId = semesterId;
     }
 
     public int getDivision() {
