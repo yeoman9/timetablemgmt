@@ -39,7 +39,7 @@ public class LoginController {
             if (loggedInUser != null) {
                 session.setAttribute("loggedInUser", loggedInUser);
                 String userRole = loggedInUser.getUserRoleId().getRoleName();
-                if(userRole=="ROLE_CLERK"){
+                if("ROLE_CLERK".equals(userRole)){
                     branches=branchServiceIf.getAllBranches();
                     modelAndView.addObject("branches", branches);
                 }
