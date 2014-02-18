@@ -15,5 +15,6 @@ public interface BranchServiceIf {
     public Branch getByID(Long id);
     public List<Branch> getAllBranches();
     public Branch getByShortName(String shortName);
+    public Branch saveOrUpdateBranch(Branch branch);
 
 }
