@@ -9,6 +9,7 @@ import com.timetablemgmt.domainobjects.Login;
 import com.timetablemgmt.services.BranchServiceIf;
 import com.timetablemgmt.services.LoginServiceIf;
 import com.timetablemgmt.util.Util;
+import java.util.Arrays;
 import java.util.List;
 import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,6 +43,12 @@ public class LoginController {
                 if("ROLE_CLERK".equals(userRole)){
                     branches=branchServiceIf.getAllBranches();
                     modelAndView.addObject("branches", branches);
+                    modelAndView.addObject("color", Util.colors);
+                }
+                else if("ROLE_PRINCIPAL".equals(userRole)){
+                    branches=branchServiceIf.getAllBranches();
+                    modelAndView.addObject("branches", branches);
+                    modelAndView.addObject("newBranch", new Branch());
                 }
                 modelAndView.setViewName(Util.getHomePageMappingFor(userRole));
             } else {

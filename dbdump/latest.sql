@@ -27,7 +27,7 @@ CREATE TABLE `BRANCH` (
   `NAME` varchar(255) DEFAULT NULL,
   `SHORT_NAME` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -36,7 +36,7 @@ CREATE TABLE `BRANCH` (
 
 LOCK TABLES `BRANCH` WRITE;
 /*!40000 ALTER TABLE `BRANCH` DISABLE KEYS */;
-INSERT INTO `BRANCH` VALUES (1,'Computer Engineering','CE'),(2,'Electronics & Communication','EC'),(3,'Mechanical Engineering','ME'),(4,'Electrical Engineering','EE');
+INSERT INTO `BRANCH` VALUES (1,'Computer Engineering','CE'),(2,'Electronics & Communication','EC'),(3,'Mechanical Engineering','ME'),(4,'Electrical Engineering','EE'),(5,'Civil Engineering','CVE');
 /*!40000 ALTER TABLE `BRANCH` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -149,12 +149,13 @@ DROP TABLE IF EXISTS `TEACHER`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `TEACHER` (
   `ID` bigint(20) NOT NULL AUTO_INCREMENT,
+  `COORDINATOR` tinyint(1) NOT NULL DEFAULT '0',
+  `HOD` tinyint(1) NOT NULL DEFAULT '0',
   `NAME` varchar(255) DEFAULT NULL,
   `SHORT_NAME` varchar(255) DEFAULT NULL,
   `BRANCH_ID` bigint(20) DEFAULT NULL,
   `LOGIN_ID` bigint(20) DEFAULT NULL,
-  `COORDINATOR` tinyint(1) DEFAULT '0',
-  `HOD` tinyint(1) DEFAULT '0',
+  `PRINCIPAL` tinyint(1) DEFAULT '0',
   PRIMARY KEY (`ID`),
   KEY `FKD4FD57C213C5DDA3` (`LOGIN_ID`),
   KEY `FKD4FD57C28B8FF711` (`BRANCH_ID`),
@@ -169,7 +170,7 @@ CREATE TABLE `TEACHER` (
 
 LOCK TABLES `TEACHER` WRITE;
 /*!40000 ALTER TABLE `TEACHER` DISABLE KEYS */;
-INSERT INTO `TEACHER` VALUES (1,'Mayur','MJP',1,2,0,0),(2,'sanket','SJS',2,3,0,0),(3,'Hitesh','HNN',2,4,0,0),(4,'Arpit','ARP',3,5,0,0);
+INSERT INTO `TEACHER` VALUES (1,0,0,'Mayur','MJP',1,2,0),(2,0,0,'sanket','SJS',2,3,0),(3,0,0,'Hitesh','HNN',2,4,0),(4,0,0,'Arpit','ARP',3,5,0);
 /*!40000 ALTER TABLE `TEACHER` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -271,4 +272,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2014-02-12 11:46:24
+-- Dump completed on 2014-02-18 14:22:21

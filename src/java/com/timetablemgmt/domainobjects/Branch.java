@@ -10,6 +10,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 /**
  *
@@ -26,6 +27,8 @@ public class Branch implements Serializable {
     private String name;
     @Column(name = "SHORT_NAME")
     private String shortName;
+    @Transient
+    private Integer total;
     
     public Long getId() {
         return id;
@@ -51,5 +54,12 @@ public class Branch implements Serializable {
         this.shortName = shortName;
     }
 
-    
+    public Integer getTotal() {
+        return total;
+    }
+
+    public void setTotal(Integer total) {
+        this.total = total;
+    }
+     
 }
