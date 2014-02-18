@@ -46,17 +46,6 @@ public class Teacher implements Serializable {
 
     @Column(name = "HOD",nullable = false, columnDefinition = "boolean default false")
     private Boolean hod;
-
-    @Column(name = "PRINCIPAL",nullable = false, columnDefinition = "boolean default false")
-    private Boolean principle;
-
-    public Boolean isPrinciple() {
-        return principle;
-    }
-
-    public void setPrinciple(Boolean principle) {
-        this.principle = principle;
-    }
     
     public Boolean isCoOrdinator() {
         return coOrdinator;

@@ -40,5 +40,10 @@ public class BranchServiceImpl implements BranchServiceIf{
     public Branch getByShortName(String shortName) {
         return branchDAO.getByShortName(shortName);
     }
+
+    @Override
+    public Branch saveOrUpdateBranch(Branch branch) {
+        return branchDAO.saveOrUpdateBranch(branch);
+    }
     
 }

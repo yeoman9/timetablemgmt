@@ -50,4 +50,9 @@ public class BranchDAOImpl extends BaseHibernateDAO<Branch, Long> implements Bra
         return findUniqueEntity(criteria, true);
     }
 
+    @Override
+    public Branch saveOrUpdateBranch(Branch branch) {
+        return super.persist(branch);
+    }
+
 }

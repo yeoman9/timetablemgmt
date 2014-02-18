@@ -17,4 +17,6 @@ public interface BranchDAO {
     public Branch getByShortName(String shortName);
 
     public List<Branch> getAllBranches();
+    
+    public Branch saveOrUpdateBranch(Branch branch);
 }
