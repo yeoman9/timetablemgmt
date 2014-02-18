@@ -5,6 +5,7 @@
 package com.timetablemgmt.services.impl;
 
 import com.timetablemgmt.dao.BranchDAO;
+import com.timetablemgmt.dao.TeacherDAO;
 import com.timetablemgmt.domainobjects.Branch;
 import com.timetablemgmt.services.BranchServiceIf;
 import java.util.List;
@@ -19,6 +20,8 @@ import org.springframework.stereotype.Service;
 public class BranchServiceImpl implements BranchServiceIf{
     @Autowired 
     private BranchDAO branchDAO = null;
+    @Autowired
+    private  TeacherDAO teacherDAO = null;
     @Override
     public Branch getByID(Long id) {
         return branchDAO.getById(id);
@@ -26,7 +29,11 @@ public class BranchServiceImpl implements BranchServiceIf{
 
     @Override
     public List<Branch> getAllBranches() {
-        return branchDAO.getAllBranches();
+        List<Branch> branches = branchDAO.getAllBranches();
+        for(Branch b : branches ){
+            b.setTotal(teacherDAO.getTeachersByBranch(b).size());
+        }
+        return branches;
     }
 
     @Override
