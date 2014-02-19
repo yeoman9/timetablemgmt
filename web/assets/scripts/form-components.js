@@ -105,8 +105,8 @@ var FormComponents = function () {
         if (jQuery().timepicker) {
             $('.timepicker-default').timepicker();
             $('.timepicker-24').timepicker({
-                minuteStep: 1,
-                showSeconds: true,
+                minuteStep: 15,
+                showSeconds: false,
                 showMeridian: false
             });
         }
