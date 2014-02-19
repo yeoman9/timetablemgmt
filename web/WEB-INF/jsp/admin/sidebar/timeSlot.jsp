@@ -1,8 +1,9 @@
 <%-- 
     Document   : home
-    Created on : 19 Feb, 2014, 9:39:39 AM
+    Created on : 11 Feb, 2014, 9:47:56 AM
     Author     : mayur
 --%>
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -25,17 +26,19 @@
         <link href="assets/plugins/fullcalendar/fullcalendar/fullcalendar.css" rel="stylesheet" type="text/css"/>
         <link href="assets/plugins/jqvmap/jqvmap/jqvmap.css" rel="stylesheet" type="text/css" media="screen"/>
         <link href="assets/plugins/jquery-easy-pie-chart/jquery.easy-pie-chart.css" rel="stylesheet" type="text/css" media="screen"/>
+        
+        	<link rel="stylesheet" type="text/css" href="assets/plugins/bootstrap-timepicker/compiled/timepicker.css" />
         <!-- END PAGE LEVEL STYLES -->
         <link rel="shortcut icon" href="favicon.ico" />
 
     </head>
     <body class="page-header-fixed">
-        <jsp:include page="../commons/header.jsp" ></jsp:include>
+        <jsp:include page="../../commons/header.jsp" ></jsp:include>
 
             <div class="page-container">
-            <jsp:include page="sidebar.jsp"></jsp:include>
+            <jsp:include page="../sidebar.jsp"></jsp:include>
                 <div class="page-content">
-                    <div id="portlet-config" class="modal hide">
+<!--                    <div id="portlet-config" class="modal hide">
                         <div class="modal-header">
                             <button data-dismiss="modal" class="close" type="button"></button>
                             <h3>Widget Settings</h3>
@@ -43,18 +46,18 @@
                         <div class="modal-body">
                             Widget settings form goes here
                         </div>
-                    </div>
+                    </div>-->
                     <!-- END SAMPLE PORTLET CONFIGURATION MODAL FORM-->
                     <!-- BEGIN PAGE CONTAINER-->
                     <div class="container-fluid">
-                        <div id="branchTable">
-                        <jsp:include page="../clerk/page_header.jsp"></jsp:include>
-                        <jsp:include page="../principalList.jsp"></jsp:include>
+                        <div id="timeSlotTable">
+                        <jsp:include page="../page_header.jsp"></jsp:include>
+                        <jsp:include page="../timeSlotList.jsp"></jsp:include>
                         </div>
                     </div>
                 </div>
             </div>
-        <jsp:include page="../commons/footer.jsp" ></jsp:include>
+                        <jsp:include page="../../commons/footer.jsp" ></jsp:include>
         <script src="assets/plugins/jquery-1.10.1.min.js" type="text/javascript"></script>
         <script src="assets/plugins/jquery-migrate-1.2.1.min.js" type="text/javascript"></script>
         <!-- IMPORTANT! Load jquery-ui-1.10.1.custom.min.js before bootstrap.min.js to fix bootstrap tooltip conflict with jquery ui tooltip -->
@@ -89,10 +92,13 @@
         <!-- END PAGE LEVEL PLUGINS -->
         <!-- BEGIN PAGE LEVEL SCRIPTS -->
         <script src="assets/scripts/app.js" type="text/javascript"></script>
+        <script src="assets/scripts/form-components.js"></script>
         <script src="assets/scripts/index.js" type="text/javascript"></script> 
+        <script type="text/javascript" src="assets/plugins/bootstrap-timepicker/js/bootstrap-timepicker.js"></script>
         <script>
             jQuery(document).ready(function() {
                 App.init(); // initlayout and core plugins
+                FormComponents.init();
 //		   Index.init();
 //		   Index.initJQVMAP(); // init index page's custom scripts
 //		   Index.initCalendar(); // init index page's custom scripts

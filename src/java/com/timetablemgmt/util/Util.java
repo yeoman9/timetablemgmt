@@ -28,10 +28,10 @@ public class Util {
     }
     public final static List<String> colors = Arrays.asList("blue","red","green","purple");
     
-//    public static Map<String,Object> getObjectsForThisPage(String pageName){
-//        Map<String,Object> objects = new HashMap<>();
-//        objects.put("","");
-//        return objects;
-//    }
+    public static Map<String,Object> getObjectsForThisPage(String pageName){
+        Map<String,Object> objects = new HashMap<>();
+        objects.put("","");
+        return objects;
+    }
     
 }
