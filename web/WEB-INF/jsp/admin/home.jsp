@@ -49,6 +49,7 @@
                     <div class="container-fluid">
                         <div id="branchTable">
                         <jsp:include page="../clerk/page_header.jsp"></jsp:include>
+                        <jsp:include page="../principalList.jsp"></jsp:include>
                         </div>
                     </div>
                 </div>
