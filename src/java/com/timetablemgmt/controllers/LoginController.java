@@ -6,8 +6,10 @@ package com.timetablemgmt.controllers;
 
 import com.timetablemgmt.domainobjects.Branch;
 import com.timetablemgmt.domainobjects.Login;
+import com.timetablemgmt.domainobjects.Principal;
 import com.timetablemgmt.services.BranchServiceIf;
 import com.timetablemgmt.services.LoginServiceIf;
+import com.timetablemgmt.services.PrincipalServiceIf;
 import com.timetablemgmt.util.Util;
 import java.util.Arrays;
 import java.util.List;
@@ -31,7 +33,10 @@ public class LoginController {
 
     @Autowired
     private BranchServiceIf branchServiceIf = null;
+    @Autowired
+    private PrincipalServiceIf principalServiceIf = null;
     List<Branch> branches = null;
+    List<Principal> principals = null;
     
     @RequestMapping("/LoginAuth.htm")
     public ModelAndView loginAuth(@ModelAttribute(value = "loginAuth") Login login, HttpSession session, ModelAndView modelAndView) {
@@ -49,6 +54,11 @@ public class LoginController {
                     branches=branchServiceIf.getAllBranches();
                     modelAndView.addObject("branches", branches);
                     modelAndView.addObject("newBranch", new Branch());
+                }
+                else if("ROLE_ADMIN".equals(userRole)){
+                    principals=principalServiceIf.getPrincipalList();
+                    modelAndView.addObject("principals", principals);
+                    modelAndView.addObject("newPrincipal", new Principal());
                 }
                 modelAndView.setViewName(Util.getHomePageMappingFor(userRole));
             } else {
