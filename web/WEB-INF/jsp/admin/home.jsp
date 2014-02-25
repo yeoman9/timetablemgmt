@@ -26,6 +26,12 @@
         <link href="assets/plugins/jqvmap/jqvmap/jqvmap.css" rel="stylesheet" type="text/css" media="screen"/>
         <link href="assets/plugins/jquery-easy-pie-chart/jquery.easy-pie-chart.css" rel="stylesheet" type="text/css" media="screen"/>
         <!-- END PAGE LEVEL STYLES -->
+        <!-- BEGIN PAGE LEVEL STYLES -->
+        <link rel="stylesheet" type="text/css" href="assets/plugins/select2/select2_metro.css" />
+        <link rel="stylesheet" href="assets/plugins/data-tables/DT_bootstrap.css" />
+        <link rel="stylesheet" type="text/css" href="assets/plugins/jquery-ui/jquery-ui-1.10.1.custom.min.css"/>
+	<link href="assets/plugins/bootstrap-modal/css/bootstrap-modal.css" rel="stylesheet" type="text/css"/>
+        <!-- END PAGE LEVEL STYLES -->
         <link rel="shortcut icon" href="favicon.ico" />
 
     </head>
@@ -89,21 +95,38 @@
         <!-- END PAGE LEVEL PLUGINS -->
         <!-- BEGIN PAGE LEVEL SCRIPTS -->
         <script src="assets/scripts/app.js" type="text/javascript"></script>
-        <script src="assets/scripts/index.js" type="text/javascript"></script> 
+        <script src="assets/scripts/index.js" type="text/javascript"></script>        
+        <!-- END PAGE LEVEL SCRIPTS -->  
+        <!-- BEGIN PAGE LEVEL PLUGINS -->
+        <script src="assets/plugins/bootstrap-modal/js/bootstrap-modal.js" type="text/javascript" ></script>
+	<script src="assets/plugins/bootstrap-modal/js/bootstrap-modalmanager.js" type="text/javascript" ></script>
+        <script type="text/javascript" src="assets/plugins/select2/select2.min.js"></script>
+        <script type="text/javascript" src="assets/plugins/data-tables/jquery.dataTables.js"></script>
+        <script type="text/javascript" src="assets/plugins/data-tables/DT_bootstrap.js"></script>
+        <!-- END PAGE LEVEL PLUGINS -->
+        <!-- BEGIN PAGE LEVEL SCRIPTS -->
+        <script src="assets/scripts/table-managed.js"></script> 
+        <script src="assets/scripts/ui-modals.js"></script>     
+       <!-- BEGIN PAGE LEVEL PLUGINS -->   
+	
+	<!-- END PAGE LEVEL PLUGINS -->
+	<!-- BEGIN PAGE LEVEL SCRIPTS -->
+	<!-- END PAGE LEVEL SCRIPTS --> 
         <script>
             jQuery(document).ready(function() {
                 App.init(); // initlayout and core plugins
-//		   Index.init();
-//		   Index.initJQVMAP(); // init index page's custom scripts
-//		   Index.initCalendar(); // init index page's custom scripts
-//		   Index.initCharts(); // init index page's custom scripts
-//		   Index.initChat();
-//		   Index.initMiniCharts();
-//		   Index.initDashboardDaterange();
-//		   Index.initIntro();
+                Index.init();
+                Index.initJQVMAP(); // init index page's custom scripts
+                Index.initCalendar(); // init index page's custom scripts
+                Index.initCharts(); // init index page's custom scripts
+                Index.initChat();
+                Index.initMiniCharts();
+                Index.initDashboardDaterange();
+                Index.initIntro();
+                TableEditable.init();
+                TableManaged.init();
+                UIModals.init();
             });
-
-
         </script>
 
     </body>

@@ -61,6 +61,7 @@ public class LoginController {
                 case "ROLE_ADMIN":
                     principals = principalServiceIf.getPrincipalList();
                     modelAndView.addObject("principals", principals);
+                    modelAndView.addObject("principal", "active");
                     modelAndView.addObject("newPrincipal", new Principal());
                     break;
             }

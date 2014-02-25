@@ -33,6 +33,7 @@ public class AdminController {
         timeSlotList = new ArrayList<>();
         timeSlotList = timeSlotServiceIf.getAllTimeSlots();
         mav.addObject("timeSlots", timeSlotList);
+        mav.addObject("timeSlot", "active");
         mav.addObject("newTimeSlot", new TimeSlot());
         mav.setViewName("admin/sidebar/timeSlot");
         return mav;
