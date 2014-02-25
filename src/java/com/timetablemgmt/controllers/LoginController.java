@@ -11,15 +11,14 @@ import com.timetablemgmt.services.BranchServiceIf;
 import com.timetablemgmt.services.LoginServiceIf;
 import com.timetablemgmt.services.PrincipalServiceIf;
 import com.timetablemgmt.util.Util;
-import java.util.Arrays;
 import java.util.List;
 import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 /**
  *
@@ -30,48 +29,46 @@ public class LoginController {
 
     @Autowired
     private LoginServiceIf loginServiceIf = null;
-
     @Autowired
     private BranchServiceIf branchServiceIf = null;
     @Autowired
     private PrincipalServiceIf principalServiceIf = null;
     List<Branch> branches = null;
     List<Principal> principals = null;
-    
-    @RequestMapping("/LoginAuth.htm")
-    public ModelAndView loginAuth(@ModelAttribute(value = "loginAuth") Login login, HttpSession session, ModelAndView modelAndView) {
+    Login loggedInUser;
+
+    @RequestMapping(value = "/LoginAuth.htm")
+    public ModelAndView loginAuth(@ModelAttribute(value = "loginAuth") Login login, HttpSession session, ModelAndView modelAndView ) {
         if (session.getAttribute("loggedInUser") == null) {
-            Login loggedInUser = loginServiceIf.getLoginWithRole(login.getUsername(), login.getPassword());
-            if (loggedInUser != null) {
-                session.setAttribute("loggedInUser", loggedInUser);
-                String userRole = loggedInUser.getUserRoleId().getRoleName();
-                if("ROLE_CLERK".equals(userRole)){
-                    branches=branchServiceIf.getAllBranches();
+            loggedInUser = loginServiceIf.getLoginWithRole(login.getUsername(), login.getPassword());
+            session.setAttribute("loggedInUser", loggedInUser);
+        } else {
+            loggedInUser = (Login) session.getAttribute("loggedInUser");
+        }
+        if (loggedInUser != null) {
+            String userRole = loggedInUser.getUserRoleId().getRoleName();
+            switch (userRole) {
+                case "ROLE_CLERK":
+                    branches = branchServiceIf.getAllBranches();
                     modelAndView.addObject("branches", branches);
                     modelAndView.addObject("color", Util.colors);
-                }
-                else if("ROLE_PRINCIPAL".equals(userRole)){
-                    branches=branchServiceIf.getAllBranches();
+                    break;
+                case "ROLE_PRINCIPAL":
+                    branches = branchServiceIf.getAllBranches();
                     modelAndView.addObject("branches", branches);
                     modelAndView.addObject("newBranch", new Branch());
-                }
-                else if("ROLE_ADMIN".equals(userRole)){
-                    principals=principalServiceIf.getPrincipalList();
+                    break;
+                case "ROLE_ADMIN":
+                    principals = principalServiceIf.getPrincipalList();
                     modelAndView.addObject("principals", principals);
                     modelAndView.addObject("newPrincipal", new Principal());
-                }
-                modelAndView.setViewName(Util.getHomePageMappingFor(userRole));
-            } else {
-                modelAndView.addObject("loginAuth", new Login());
-                modelAndView.addObject("error", "true");
-                modelAndView.setViewName("index");
+                    break;
             }
-            return modelAndView;
-        } else {
-            Login loggedInUser = (Login)session.getAttribute("loggedInUser");
-            String userRole = loggedInUser.getUserRoleId().getRoleName();
             modelAndView.setViewName(Util.getHomePageMappingFor(userRole));
-            return modelAndView;
+        } else {
+//            modelAndView.addObject("error", "true");
+            modelAndView.setViewName("redirect:/retry.htm");
         }
+        return modelAndView;
     }
 }
