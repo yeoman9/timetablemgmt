@@ -16,7 +16,7 @@ import java.util.Map;
  */
 public class Util {
     final static HashMap<String, String > homePageMapping = new HashMap<String, String>(){{
-        put("ROLE_ADMIN","admin/home");
+        put("ROLE_ADMIN","admin/sidebar/principal");
         put("ROLE_TEACHER","teacher/home");
         put("ROLE_HOD","hod/home");
         put("ROLE_CLERK","clerk/home");

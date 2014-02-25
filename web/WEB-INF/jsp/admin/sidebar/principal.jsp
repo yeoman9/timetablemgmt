@@ -36,10 +36,10 @@
 
     </head>
     <body class="page-header-fixed">
-        <jsp:include page="../commons/header.jsp" ></jsp:include>
+        <jsp:include page="../../commons/header.jsp" ></jsp:include>
 
             <div class="page-container">
-            <jsp:include page="sidebar.jsp"></jsp:include>
+            <jsp:include page="../sidebar.jsp"></jsp:include>
                 <div class="page-content">
                     <div id="portlet-config" class="modal hide">
                         <div class="modal-header">
@@ -54,13 +54,13 @@
                     <!-- BEGIN PAGE CONTAINER-->
                     <div class="container-fluid">
                         <div id="branchTable">
-                        <jsp:include page="../clerk/page_header.jsp"></jsp:include>
-                        <jsp:include page="../principalList.jsp"></jsp:include>
+                        <jsp:include page="../../clerk/page_header.jsp"></jsp:include>
+                        <jsp:include page="../../principalList.jsp"></jsp:include>
                         </div>
                     </div>
                 </div>
             </div>
-        <jsp:include page="../commons/footer.jsp" ></jsp:include>
+        <jsp:include page="../../commons/footer.jsp" ></jsp:include>
         <script src="assets/plugins/jquery-1.10.1.min.js" type="text/javascript"></script>
         <script src="assets/plugins/jquery-migrate-1.2.1.min.js" type="text/javascript"></script>
         <!-- IMPORTANT! Load jquery-ui-1.10.1.custom.min.js before bootstrap.min.js to fix bootstrap tooltip conflict with jquery ui tooltip -->
