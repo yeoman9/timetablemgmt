@@ -18,7 +18,7 @@ public class Util {
     final static HashMap<String, String > homePageMapping = new HashMap<String, String>(){{
         put("ROLE_ADMIN","admin/sidebar/principal");
         put("ROLE_TEACHER","teacher/home");
-        put("ROLE_HOD","hod/sidebar/coordinator");
+        put("ROLE_HOD","hod/sidebar/semester");
         put("ROLE_CLERK","clerk/home");
         put("ROLE_PRINCIPAL","principal/sidebar/branches");
     }};

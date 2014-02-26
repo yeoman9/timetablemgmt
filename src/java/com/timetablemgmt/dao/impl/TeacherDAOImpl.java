@@ -8,6 +8,7 @@ import com.timetablemgmt.common.QueryCriteria;
 import com.timetablemgmt.common.QueryCriterion;
 import com.timetablemgmt.dao.TeacherDAO;
 import com.timetablemgmt.domainobjects.Branch;
+import com.timetablemgmt.domainobjects.Login;
 import com.timetablemgmt.domainobjects.Teacher;
 import com.timetablemgmt.hibernateutils.BaseHibernateDAO;
 import com.timetablemgmt.hibernateutils.BasicHiberDAO;
@@ -53,6 +54,14 @@ public class TeacherDAOImpl extends BaseHibernateDAO<Teacher, Long>implements Te
         QueryCriterion criterion = QueryCriterion.createCriterion("hod",true);
         criteria.addQueryCriteria("hod", criterion);
         return findEntities(criteria,true).getResults();
+    }
+
+    @Override
+    public Teacher getByLoginId(Login loginId) {
+        QueryCriteria criteria = new QueryCriteria();
+        QueryCriterion criterion = QueryCriterion.createCriterion("loginId.id", loginId.getId());
+        criteria.addQueryCriteria("loginId.id", criterion);
+        return findUniqueEntity(criteria,true);
     }
     
     

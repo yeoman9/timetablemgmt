@@ -5,6 +5,7 @@
 package com.timetablemgmt.services;
 
 import com.timetablemgmt.domainobjects.Branch;
+import com.timetablemgmt.domainobjects.Login;
 import com.timetablemgmt.domainobjects.Teacher;
 import java.util.List;
 
@@ -21,4 +22,6 @@ public interface TeacherServiceIf {
     public Teacher saveOrUpdateTeacher(Teacher teacher);
 
     public List<Teacher> getAllHod();
+    
+    public Teacher getByLoginId(Login loginId);
 }

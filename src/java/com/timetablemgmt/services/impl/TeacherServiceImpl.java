@@ -6,6 +6,7 @@ package com.timetablemgmt.services.impl;
 
 import com.timetablemgmt.dao.TeacherDAO;
 import com.timetablemgmt.domainobjects.Branch;
+import com.timetablemgmt.domainobjects.Login;
 import com.timetablemgmt.domainobjects.Teacher;
 import com.timetablemgmt.services.TeacherServiceIf;
 import java.util.List;
@@ -39,5 +40,10 @@ public class TeacherServiceImpl implements TeacherServiceIf{
     @Override
     public List<Teacher> getAllHod() {
         return teacherDAO.getAllHods();
+    }
+
+    @Override
+    public Teacher getByLoginId(Login loginId) {
+        return teacherDAO.getByLoginId(loginId);
     }
 }

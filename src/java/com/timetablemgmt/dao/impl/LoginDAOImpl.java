@@ -28,13 +28,19 @@ public class LoginDAOImpl extends BaseHibernateDAO<Login, Long> implements Login
         criteria.addQueryCriteria("password", criterion2);
         return findUniqueEntity(criteria, true);
     }
+
     @Override
     public Login getLoginWithRole(String username, String password) {
-       
-            Login login = getLogin(username, password);
-            if(login!=null){
-                Hibernate.initialize(login.getUserRoleId());
-            }
+
+        Login login = getLogin(username, password);
+        if (login != null) {
+            Hibernate.initialize(login.getUserRoleId());
+        }
         return login;
+    }
+
+    @Override
+    public Login getById(Long id) {
+        return findById(id);
     }
 }

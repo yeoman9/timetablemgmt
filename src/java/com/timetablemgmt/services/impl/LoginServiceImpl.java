@@ -27,5 +27,10 @@ public class LoginServiceImpl implements LoginServiceIf{
     public Login getLoginWithRole(String username, String password) {
                return loginDAO.getLoginWithRole(username,password);
     }
+
+    @Override
+    public Login getById(Long id) {
+        return loginDAO.getById(id);
+    }
     
 }

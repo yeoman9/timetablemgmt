@@ -7,9 +7,12 @@ package com.timetablemgmt.controllers;
 import com.timetablemgmt.domainobjects.Branch;
 import com.timetablemgmt.domainobjects.Login;
 import com.timetablemgmt.domainobjects.Principal;
+import com.timetablemgmt.domainobjects.Semester;
 import com.timetablemgmt.services.BranchServiceIf;
 import com.timetablemgmt.services.LoginServiceIf;
 import com.timetablemgmt.services.PrincipalServiceIf;
+import com.timetablemgmt.services.SemesterServiceIf;
+import com.timetablemgmt.services.TeacherServiceIf;
 import com.timetablemgmt.util.Util;
 import java.util.List;
 import javax.servlet.http.HttpSession;
@@ -33,8 +36,14 @@ public class LoginController {
     private BranchServiceIf branchServiceIf = null;
     @Autowired
     private PrincipalServiceIf principalServiceIf = null;
+    @Autowired
+    private SemesterServiceIf semesterServiceIf = null;
+    @Autowired
+    private TeacherServiceIf teacherServiceIf = null;
+    
     List<Branch> branches = null;
     List<Principal> principals = null;
+    List<Semester> semesters = null;
     Login loggedInUser;
 
     @RequestMapping(value = "/LoginAuth.htm")
@@ -66,10 +75,12 @@ public class LoginController {
                     modelAndView.addObject("newPrincipal", new Principal());
                     break;
                 case "ROLE_HOD":
-                    principals = principalServiceIf.getPrincipalList();
-                    modelAndView.addObject("principals", principals);
-                    modelAndView.addObject("principal", "active");
-                    modelAndView.addObject("newPrincipal", new Principal());
+                    semesters = semesterServiceIf.getAllSemesterByBranch(teacherServiceIf.getByLoginId(
+                                                                         loginServiceIf.getById(
+                                                                         loggedInUser.getId())).getBranchId());
+                    modelAndView.addObject("semesters", semesters);
+                    modelAndView.addObject("semester", "active");
+                    modelAndView.addObject("newSemester", new Semester());
                     break;
             }
             modelAndView.setViewName(Util.getHomePageMappingFor(userRole));
