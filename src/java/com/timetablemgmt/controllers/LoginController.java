@@ -65,6 +65,12 @@ public class LoginController {
                     modelAndView.addObject("principal", "active");
                     modelAndView.addObject("newPrincipal", new Principal());
                     break;
+                case "ROLE_HOD":
+                    principals = principalServiceIf.getPrincipalList();
+                    modelAndView.addObject("principals", principals);
+                    modelAndView.addObject("principal", "active");
+                    modelAndView.addObject("newPrincipal", new Principal());
+                    break;
             }
             modelAndView.setViewName(Util.getHomePageMappingFor(userRole));
         } else {
