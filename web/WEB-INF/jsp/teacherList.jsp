@@ -112,7 +112,7 @@
                     <button type="button" data-dismiss="modal" class="btn">Close</button><!--
                     <!--</div>-->
                 </div>
-                         <%--<form:hidden path="currentBranch" value="${branchShortName}" />--%>
+                         <form:hidden path="hod" value="false" />
             </form:form>
         </div>
         <!-- END ADD NEW TEACHER MODAL -->
