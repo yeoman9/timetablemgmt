@@ -5,6 +5,7 @@
 package com.timetablemgmt.domainobjects;
 
 import java.io.Serializable;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -26,6 +27,13 @@ public class Semester implements Serializable {
     @Column(name = "ID")
     private Long id;
     
+    @Column(name = "SEMESTER_NO")
+    private int  semesterNo;
+    
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "COORDINATOR")
+    private Teacher coOrdinator;
+    
     @Column(name = "DIVISION")
     private int  division;
 
@@ -37,6 +45,22 @@ public class Semester implements Serializable {
         this.id = id;
     }
 
+    public int getSemesterNo() {
+        return semesterNo;
+    }
+
+    public void setSemesterNo(int semesterNo) {
+        this.semesterNo = semesterNo;
+    }
+
+    public Teacher getCoOrdinator() {
+        return coOrdinator;
+    }
+
+    public void setCoOrdinator(Teacher coOrdinator) {
+        this.coOrdinator = coOrdinator;
+    }
+    
     public int getDivision() {
         return division;
     }
