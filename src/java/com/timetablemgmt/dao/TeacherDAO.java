@@ -19,4 +19,6 @@ public interface TeacherDAO {
     public List<Teacher> getTeachersByBranch(Branch branchId);
 
     public Teacher saveOrUpdateTeacher(Teacher teacher);
+
+    public List<Teacher> getAllHods();
 }

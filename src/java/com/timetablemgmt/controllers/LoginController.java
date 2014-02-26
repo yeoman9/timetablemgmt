@@ -56,6 +56,7 @@ public class LoginController {
                 case "ROLE_PRINCIPAL":
                     branches = branchServiceIf.getAllBranches();
                     modelAndView.addObject("branches", branches);
+                    modelAndView.addObject("branch", "active");
                     modelAndView.addObject("newBranch", new Branch());
                     break;
                 case "ROLE_ADMIN":

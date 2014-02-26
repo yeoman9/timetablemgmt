@@ -15,11 +15,10 @@ import org.springframework.web.servlet.ModelAndView;
 
 /**
  *
- * @author sanket
+ * @author mayur
  */
 @Controller
-public class AddOrUpdateBranchController {
-
+public class BranchController {
     @Autowired
     private BranchServiceIf branchServiceIf = null;
     List<Branch> branches = null;

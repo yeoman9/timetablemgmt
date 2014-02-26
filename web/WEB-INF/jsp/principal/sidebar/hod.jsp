@@ -52,7 +52,7 @@
                     <div class="container-fluid">
                         <div id="timeSlotTable">
                         <jsp:include page="../page_header.jsp"></jsp:include>
-                        <jsp:include page="../../timeSlotList.jsp"></jsp:include>
+                        <jsp:include page="../../hodList.jsp"></jsp:include>
                         </div>
                     </div>
                 </div>

@@ -9,11 +9,11 @@ import com.timetablemgmt.domainobjects.Teacher;
 import com.timetablemgmt.services.BranchServiceIf;
 import com.timetablemgmt.services.TeacherServiceIf;
 import com.timetablemgmt.services.UserRoleServiceIf;
+import java.util.ArrayList;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
@@ -23,8 +23,8 @@ import org.springframework.web.servlet.ModelAndView;
  * @author mayur
  */
 @Controller
-public class AddOrUpdateTeacher {
-    
+public class TeacherController {
+     
     @Autowired
     private TeacherServiceIf teacherServiceIf= null;
     
@@ -33,6 +33,10 @@ public class AddOrUpdateTeacher {
     
     @Autowired
     private UserRoleServiceIf userRoleServiceIf = null;
+    
+    private List<Branch> branches;
+    private List<String> branchShortNames;
+    Branch branchId;
     
     private List<Teacher> teachers;
     @RequestMapping("/addTeacher.htm")
@@ -56,5 +60,37 @@ public class AddOrUpdateTeacher {
 
   //      teacherServiceIf.saveOrUpdateTeacher(teacher);
         return "teacher/profile";
+    }
+    
+    
+
+    @RequestMapping("/clerk_teacherList.htm")
+    public ModelAndView getTeacherList(@RequestParam String branch, ModelAndView mav) {
+        System.out.println("into controller..");
+
+        List<Teacher> teachers = null;
+        if ("ALL".equals(branch)) {
+            teachers = teacherServiceIf.getAllTeachers();
+
+        } else {
+            branchId = branchServiceIf.getByShortName(branch);
+            if (branchId != null) {
+                teachers = teacherServiceIf.getTeachersByBranch(branchId);
+            }
+        }
+
+        branches = branchServiceIf.getAllBranches();
+        branchShortNames = new ArrayList<>();
+
+        for (Branch singleBranch : branches) {
+            branchShortNames.add(singleBranch.getShortName());
+        }
+
+        mav.addObject("teachers", teachers);
+        mav.addObject("newTeacher", new Teacher());
+        mav.addObject("branches", branchShortNames);
+        mav.addObject("branchShortName", branch);
+        mav.setViewName("clerk/clerk_teacherList");
+        return mav;
     }
 }

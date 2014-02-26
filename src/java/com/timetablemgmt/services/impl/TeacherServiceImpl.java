@@ -35,4 +35,9 @@ public class TeacherServiceImpl implements TeacherServiceIf{
     public Teacher saveOrUpdateTeacher(Teacher teacher) {
             return teacherDAO.saveOrUpdateTeacher(teacher);
     }
+
+    @Override
+    public List<Teacher> getAllHod() {
+        return teacherDAO.getAllHods();
+    }
 }

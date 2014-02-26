@@ -6,7 +6,6 @@ package com.timetablemgmt.controllers;
 
 import com.timetablemgmt.domainobjects.TimeSlot;
 import com.timetablemgmt.services.TimeSlotServiceIf;
-import com.timetablemgmt.services.impl.TimeSlotServiceImpl;
 import java.util.ArrayList;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;

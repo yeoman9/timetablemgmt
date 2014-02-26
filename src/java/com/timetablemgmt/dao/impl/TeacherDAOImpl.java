@@ -46,6 +46,14 @@ public class TeacherDAOImpl extends BaseHibernateDAO<Teacher, Long>implements Te
     public Teacher saveOrUpdateTeacher(Teacher teacher) {
          return persist(teacher);
     }
+
+    @Override
+    public List<Teacher> getAllHods() {
+        QueryCriteria criteria = new QueryCriteria();
+        QueryCriterion criterion = QueryCriterion.createCriterion("hod",true);
+        criteria.addQueryCriteria("hod", criterion);
+        return findEntities(criteria,true).getResults();
+    }
     
     
 }
