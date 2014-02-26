@@ -22,24 +22,15 @@ import org.springframework.stereotype.Repository;
  */
 @Repository
 public class BranchDAOImpl extends BaseHibernateDAO<Branch, Long> implements BranchDAO{
-    Session session = getSessionFactory().openSession();
     
     @Override
     public Branch getById(Long id) {
-        try {
-             return (Branch) session.createQuery("SELECT FROM Branch WHERE id='" + id +"'");
-             
-        } catch (HibernateException e) {
-        
-        }finally{
-            session.close();
-        }
-        return null;
+        return findById(id);
     }
 
     @Override
     public List<Branch> getAllBranches() {
-        return session.createQuery("FROM Branch").list();
+        return getCurrentSession().createQuery("FROM Branch").list();
     }
 
     @Override

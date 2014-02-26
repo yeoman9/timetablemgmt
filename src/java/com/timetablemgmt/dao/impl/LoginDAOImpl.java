@@ -4,14 +4,12 @@
  */
 package com.timetablemgmt.dao.impl;
 
+import com.timetablemgmt.common.QueryCriteria;
+import com.timetablemgmt.common.QueryCriterion;
 import com.timetablemgmt.dao.LoginDAO;
 import com.timetablemgmt.domainobjects.Login;
 import com.timetablemgmt.hibernateutils.BaseHibernateDAO;
-import com.timetablemgmt.hibernateutils.HibernateUtil;
-import java.io.Serializable;
 import org.hibernate.Hibernate;
-import org.hibernate.HibernateException;
-import org.hibernate.Session;
 import org.springframework.stereotype.Repository;
 
 /**
@@ -23,28 +21,20 @@ public class LoginDAOImpl extends BaseHibernateDAO<Login, Long> implements Login
 
     @Override
     public Login getLogin(String username, String password) {
-        //Session session = getSessionFactory().openSession();
-        Login login = null;
-        try {
-            login = (Login) getCurrentSession().createQuery("FROM Login WHERE username = '" + username + "' AND password = '" + password + "'").uniqueResult();
-        } catch (HibernateException e) {
-        } finally {
-            //session.close();
-        }
-        return login;
+        QueryCriteria criteria = new QueryCriteria();
+        QueryCriterion criterion1 = QueryCriterion.createCriterion("username", username);
+        QueryCriterion criterion2 = QueryCriterion.createCriterion("password", password);
+        criteria.addQueryCriteria("username", criterion1);
+        criteria.addQueryCriteria("password", criterion2);
+        return findUniqueEntity(criteria, true);
     }
     @Override
     public Login getLoginWithRole(String username, String password) {
-       // Session session = getSessionFactory().openSession();
-        Login login = null;
-        try {
-            login = (Login) getCurrentSession().createQuery("FROM Login WHERE username = '" + username + "' AND password = '" + password + "'").uniqueResult();
-            if(login!=null)
-            Hibernate.initialize(login.getUserRoleId());
-        } catch (HibernateException e) {
-        } finally {
-           // session.close();
-        }
+       
+            Login login = getLogin(username, password);
+            if(login!=null){
+                Hibernate.initialize(login.getUserRoleId());
+            }
         return login;
     }
 }
