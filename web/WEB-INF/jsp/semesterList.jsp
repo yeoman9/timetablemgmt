@@ -70,8 +70,8 @@
                         <div class="control-group">
                             <label class="control-label">Class CoOrdinator<span class="required">*</span></label>
                             <div class="controls">
-                            <form:select path="coOrdinator.name" items="${coOrdinatorNames}" class="m-wrap medium" tabindex="1">
-
+                            <form:select path="coOrdinator" class="m-wrap medium" tabindex="1">
+                                <form:options items="${coOrdinators}" itemValue="name" itemLabel="name"></form:options>
                             </form:select>
                         </div>
                     </div>

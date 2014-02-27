@@ -81,12 +81,8 @@ public class LoginController {
                     Branch branch = teacherServiceIf.getByLoginId(loginServiceIf.getById(loggedInUser.getId())).getBranchId();
                     semesters = semesterServiceIf.getAllSemesterByBranch(branch);
                     coOrdinators = teacherServiceIf.getTeachersByBranch(branch);
-                    List<String> coOrdinatorNames = new ArrayList<>();
-                    for(Teacher coOrdinator : coOrdinators ){
-                        coOrdinatorNames.add(coOrdinator.getName());
-                    }
                     modelAndView.addObject("semesters", semesters);
-                    modelAndView.addObject("coOrdinatorNames", coOrdinatorNames);
+                    modelAndView.addObject("coOrdinators", coOrdinators);
                     modelAndView.addObject("semester", "active");
                     modelAndView.addObject("newSemester", new Semester());
                     break;
