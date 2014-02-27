@@ -8,12 +8,14 @@ import com.timetablemgmt.domainobjects.Branch;
 import com.timetablemgmt.domainobjects.Login;
 import com.timetablemgmt.domainobjects.Principal;
 import com.timetablemgmt.domainobjects.Semester;
+import com.timetablemgmt.domainobjects.Teacher;
 import com.timetablemgmt.services.BranchServiceIf;
 import com.timetablemgmt.services.LoginServiceIf;
 import com.timetablemgmt.services.PrincipalServiceIf;
 import com.timetablemgmt.services.SemesterServiceIf;
 import com.timetablemgmt.services.TeacherServiceIf;
 import com.timetablemgmt.util.Util;
+import java.util.ArrayList;
 import java.util.List;
 import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -44,6 +46,7 @@ public class LoginController {
     List<Branch> branches = null;
     List<Principal> principals = null;
     List<Semester> semesters = null;
+    List<Teacher> coOrdinators = null;
     Login loggedInUser;
 
     @RequestMapping(value = "/LoginAuth.htm")
@@ -75,10 +78,15 @@ public class LoginController {
                     modelAndView.addObject("newPrincipal", new Principal());
                     break;
                 case "ROLE_HOD":
-                    semesters = semesterServiceIf.getAllSemesterByBranch(teacherServiceIf.getByLoginId(
-                                                                         loginServiceIf.getById(
-                                                                         loggedInUser.getId())).getBranchId());
+                    Branch branch = teacherServiceIf.getByLoginId(loginServiceIf.getById(loggedInUser.getId())).getBranchId();
+                    semesters = semesterServiceIf.getAllSemesterByBranch(branch);
+                    coOrdinators = teacherServiceIf.getTeachersByBranch(branch);
+                    List<String> coOrdinatorNames = new ArrayList<>();
+                    for(Teacher coOrdinator : coOrdinators ){
+                        coOrdinatorNames.add(coOrdinator.getName());
+                    }
                     modelAndView.addObject("semesters", semesters);
+                    modelAndView.addObject("coOrdinatorNames", coOrdinatorNames);
                     modelAndView.addObject("semester", "active");
                     modelAndView.addObject("newSemester", new Semester());
                     break;

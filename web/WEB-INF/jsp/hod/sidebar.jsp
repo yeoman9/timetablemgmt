@@ -23,22 +23,11 @@
             </form>
             <!--END RESPONSIVE QUICK SEARCH FORM--> 
         </li>
-        <li class="start ${principal}">
+        <li class="start ${semester}">
             <a href="LoginAuth.htm">
                 <i class="icon-sitemap"></i> 
-                <span class="title">Principal</span>
-                <c:if test="${principal == 'active'}">
-                    <span class="selected"></span>
-                </c:if>
-
-            </a>
-
-        </li>
-        <li class="${timeSlot}" >
-            <a href="timeSlot.htm">
-                <i class="icon-sitemap"></i> 
-                <span class="title">TimeSlot</span>
-                <c:if test="${timeSlot == 'active'}">
+                <span class="title">Semester</span>
+                <c:if test="${semester == 'active'}">
                     <span class="selected"></span>
                 </c:if>
             </a>

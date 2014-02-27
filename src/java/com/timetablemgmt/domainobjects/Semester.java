@@ -28,14 +28,14 @@ public class Semester implements Serializable {
     private Long id;
     
     @Column(name = "SEMESTER_NO")
-    private int  semesterNo;
+    private Integer  semesterNo;
     
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "COORDINATOR")
     private Teacher coOrdinator;
     
     @Column(name = "DIVISION")
-    private int  division;
+    private Integer  division;
 
     public Long getId() {
         return id;
@@ -45,11 +45,11 @@ public class Semester implements Serializable {
         this.id = id;
     }
 
-    public int getSemesterNo() {
+    public Integer getSemesterNo() {
         return semesterNo;
     }
 
-    public void setSemesterNo(int semesterNo) {
+    public void setSemesterNo(Integer semesterNo) {
         this.semesterNo = semesterNo;
     }
 
@@ -60,12 +60,12 @@ public class Semester implements Serializable {
     public void setCoOrdinator(Teacher coOrdinator) {
         this.coOrdinator = coOrdinator;
     }
-    
-    public int getDivision() {
+
+    public Integer getDivision() {
         return division;
     }
 
-    public void setDivision(int division) {
+    public void setDivision(Integer division) {
         this.division = division;
     }
     

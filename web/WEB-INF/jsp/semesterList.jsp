@@ -27,30 +27,16 @@
                             <th>Username</th>
                             <th>Name</th>
                             <th>Email</th>
-                            <th>Status</th>
-                            <th>Profile</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <c:forEach items="${principals}" var="principal">
+                        <c:forEach items="${semesters}" var="semester">
                             <tr>
-                                <td>${principal.loginId.username}</td>
-                                <td>${principal.name}</td>
-                                <td>${principal.loginId.email}</td>
-
-                                <c:choose>
-                                    <c:when test="${principal.loginId.status == 'A'}">
-                                        <td><span class="label label-success">Active</span></td>
-                                    </c:when>
-                                    <c:otherwise>
-                                        <td><span class="label label-inverse">Blocked</span></td>
-                                    </c:otherwise>
-                                </c:choose>
-
-                                <td><a href="profile.htm">View</a></td>
+                                <td>${semester}</td>
+                                <td>${semester}</td>
+                                <td>${semester}</td>
                             </tr>
                         </c:forEach>
-
                     </tbody>
                 </table>
 
@@ -68,24 +54,38 @@
             <form:form action="#" modelAttribute="newSemester" class="form-horizontal">
                 <div class="modal-body">
                     <div class="control-group">
-                        <label class="control-label">Name<span class="required">*</span></label>
+                        <label class="control-label">Semester No<span class="required">*</span></label>
                         <div class="controls">
-                            <form:input path="semesterNo" type="text" placeholder="name" class="m-wrap medium"></form:input>
+                            <form:input path="semesterNo" type="text" placeholder="number" class="m-wrap medium"></form:input>
                                 <span class="help-inline">Some hint here</span>
                             </div>
                         </div>
-                </div>
-                <div class="modal-footer">
-                    <!--                    <button type="button" data-dismiss="modal" class="btn">Close</button>
-                                            <button type="button" class="btn blue">Save</button>-->
-                    <!--                    <div class="form-actions">-->
-                    <button type="submit" class="btn blue"><i class="icon-ok"></i> Save</button>
-                    <button type="button" data-dismiss="modal" class="btn">Close</button><!--
-                    <!--</div>-->
-                </div>
-            </form:form>
-        </div>
-        <!-- END ADD NEW TEACHER MODAL -->
+                        <div class="control-group">
+                            <label class="control-label">Division<span class="required">*</span></label>
+                            <div class="controls">
+                            <form:input path="division" type="text" placeholder="division" class="m-wrap medium"></form:input>
+                                <span class="help-inline">Some hint here</span>
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label class="control-label">Class CoOrdinator<span class="required">*</span></label>
+                            <div class="controls">
+                            <form:select path="coOrdinator.name" items="${coOrdinatorNames}" class="m-wrap medium" tabindex="1">
 
+                            </form:select>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <!--                    <button type="button" data-dismiss="modal" class="btn">Close</button>
+                                                <button type="button" class="btn blue">Save</button>-->
+                        <!--                    <div class="form-actions">-->
+                        <button type="submit" class="btn blue"><i class="icon-ok"></i> Save</button>
+                        <button type="button" data-dismiss="modal" class="btn">Close</button><!--
+                        <!--</div>-->
+                    </div>
+                </form:form>
+            </div>
+            <!-- END ADD NEW TEACHER MODAL -->
+
+        </div>
     </div>
-</div>

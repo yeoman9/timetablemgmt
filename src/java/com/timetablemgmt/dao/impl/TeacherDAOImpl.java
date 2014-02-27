@@ -38,8 +38,10 @@ public class TeacherDAOImpl extends BaseHibernateDAO<Teacher, Long>implements Te
     @Override
     public List<Teacher> getTeachersByBranch(Branch branchId) {
         QueryCriteria criteria = new QueryCriteria();
-        QueryCriterion criterion = QueryCriterion.createCriterion("branchId.id", branchId.getId());
-        criteria.addQueryCriteria("branchId.id", criterion);
+        QueryCriterion criterion1 = QueryCriterion.createCriterion("branchId.id", branchId.getId());
+        QueryCriterion criterion2 = QueryCriterion.createCriterion("hod",true, QueryCriterion.RESTRICTIONS.NE);
+        criteria.addQueryCriteria("branchId.id", criterion1);
+        criteria.addQueryCriteria("hod", criterion2);
         return findEntities(criteria,true).getResults();
     }
 
