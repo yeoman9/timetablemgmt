@@ -65,6 +65,11 @@ public class TeacherDAOImpl extends BaseHibernateDAO<Teacher, Long>implements Te
         criteria.addQueryCriteria("loginId.id", criterion);
         return findUniqueEntity(criteria,true);
     }
+
+    @Override
+    public Teacher getById(Long id) {
+        return findById(id);
+    }
     
     
 }

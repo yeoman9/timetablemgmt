@@ -14,6 +14,8 @@ import java.util.List;
  * @author mayur
  */
 public interface TeacherDAO {
+    
+    public Teacher getById(Long id);
 
     public List<Teacher> getAllTeachers();
 

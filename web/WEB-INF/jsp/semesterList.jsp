@@ -24,17 +24,17 @@
                 <table class="table table-striped table-bordered table-hover" id="sample_3">
                     <thead>
                         <tr>
-                            <th>Username</th>
-                            <th>Name</th>
-                            <th>Email</th>
+                            <th>Semester</th>
+                            <th>Division</th>
+                            <th>Co-Ordinator</th>
                         </tr>
                     </thead>
                     <tbody>
                         <c:forEach items="${semesters}" var="semester">
                             <tr>
-                                <td>${semester}</td>
-                                <td>${semester}</td>
-                                <td>${semester}</td>
+                                <td>${semester.semesterNo}</td>
+                                <td>${semester.division}</td>
+                                <td>${semester.coOrdinator.name}</td>
                             </tr>
                         </c:forEach>
                     </tbody>
@@ -51,27 +51,44 @@
                 <h3>Add new Principal</h3>
             </div>
             <!-- BEGIN FORM-->
-            <form:form action="#" modelAttribute="newSemester" class="form-horizontal">
+            <form:form action="addSemester.htm" modelAttribute="newSemester" class="form-horizontal">
                 <div class="modal-body">
                     <div class="control-group">
                         <label class="control-label">Semester No<span class="required">*</span></label>
                         <div class="controls">
-                            <form:input path="semesterNo" type="text" placeholder="number" class="m-wrap medium"></form:input>
+
+                            <form:select path="semesterNo">
+                                <form:option value="1"></form:option>
+                                <form:option value="2"></form:option>
+                                <form:option value="3"></form:option>
+                                <form:option value="4"></form:option>
+                                <form:option value="5"></form:option>
+                                <form:option value="6"></form:option>
+                                <form:option value="7"></form:option>
+                                <form:option value="8"></form:option>
+                            </form:select>
+
+                            <span class="help-inline">Some hint here</span>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label">Division<span class="required">*</span></label>
+                        <div class="controls">
+                            <form:select path="division">
+                                <form:option value="1"></form:option>
+                                <form:option value="2"></form:option>
+                                <form:option value="3"></form:option>
+                                <form:option value="4"></form:option>
+                            </form:select>
                                 <span class="help-inline">Some hint here</span>
                             </div>
                         </div>
-                        <div class="control-group">
-                            <label class="control-label">Division<span class="required">*</span></label>
-                            <div class="controls">
-                            <form:input path="division" type="text" placeholder="division" class="m-wrap medium"></form:input>
-                                <span class="help-inline">Some hint here</span>
-                            </div>
-                        </div>
+
                         <div class="control-group">
                             <label class="control-label">Class CoOrdinator<span class="required">*</span></label>
                             <div class="controls">
                             <form:select path="coOrdinator" class="m-wrap medium" tabindex="1">
-                                <form:options items="${coOrdinators}" itemValue="name" itemLabel="name"></form:options>
+                                <form:options items="${coOrdinators}" itemValue="id" itemLabel="nameWithShortName"></form:options>
                             </form:select>
                         </div>
                     </div>

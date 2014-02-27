@@ -14,6 +14,8 @@ import java.util.List;
  * @author mayur
  */
 public interface TeacherServiceIf {
+    
+    public Teacher getById(Long id);
 
     public List<Teacher> getAllTeachers();
 

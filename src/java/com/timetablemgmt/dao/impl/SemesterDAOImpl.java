@@ -32,5 +32,10 @@ public class SemesterDAOImpl extends BaseHibernateDAO<Semester, Long> implements
         criteria.addQueryCriteria("coOrdinator.branchId.id", criterion);
         return findEntities(criteria, true).getResults();
     }
+
+    @Override
+    public Semester saveOrUpdate(Semester semester) {
+        return super.persist(semester);
+    }
     
 }

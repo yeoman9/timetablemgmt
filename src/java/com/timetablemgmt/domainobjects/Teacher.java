@@ -14,6 +14,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 /** 
  *
@@ -43,6 +44,9 @@ public class Teacher implements Serializable {
 
     @Column(name = "HOD",nullable = false, columnDefinition = "boolean default false")
     private Boolean hod;
+    
+    @Transient
+    private String nameWithShortName;
 
     public Long getId() {
         return id;
@@ -90,6 +94,10 @@ public class Teacher implements Serializable {
 
     public void setHod(Boolean hod) {
         this.hod = hod;
+    }
+
+    public String getNameWithShortName() {
+        return getName()+"   ("+getShortName()+")";
     }
     
 }

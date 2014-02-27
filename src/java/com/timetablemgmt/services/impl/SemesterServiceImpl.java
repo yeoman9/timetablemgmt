@@ -31,4 +31,9 @@ public class SemesterServiceImpl implements SemesterServiceIf {
     public List<Semester> getAllSemesterByBranch(Branch branchId) {
         return semesterDAO.getAllSemesterByBranch(branchId);
     }
+
+    @Override
+    public Semester saveOrUpdate(Semester semester) {
+        return semesterDAO.saveOrUpdate(semester);
+    }
 }

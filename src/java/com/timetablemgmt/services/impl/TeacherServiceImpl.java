@@ -46,4 +46,9 @@ public class TeacherServiceImpl implements TeacherServiceIf{
     public Teacher getByLoginId(Login loginId) {
         return teacherDAO.getByLoginId(loginId);
     }
+
+    @Override
+    public Teacher getById(Long id) {
+        return teacherDAO.getById(id);
+    }
 }

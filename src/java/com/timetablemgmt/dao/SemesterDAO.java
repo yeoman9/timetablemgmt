@@ -15,4 +15,5 @@ import java.util.List;
 public interface SemesterDAO {
     public Semester getById(Long id);
     public List<Semester> getAllSemesterByBranch(Branch branchId);
+    public Semester saveOrUpdate(Semester semester);
 }
