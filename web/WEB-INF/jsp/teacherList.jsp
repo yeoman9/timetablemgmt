@@ -98,8 +98,11 @@
                         <div class="control-group">
                             <label class="control-label">Branch<span class="required">*</span></label>
                             <div class="controls">
-                            <form:select path="branchId.shortName" items="${branches}" class="small m-wrap" tabindex="1">
+                            <%-- <form:select path="branchId.shortName" items="${branches}" class="small m-wrap" tabindex="1">
 
+                            </form:select> --%>
+                                <form:select path="branchId" class="m-wrap medium" tabindex="1">
+                                <form:options items="${branches}" itemValue="id" itemLabel="shortName"></form:options>
                             </form:select>
                         </div>
                     </div>

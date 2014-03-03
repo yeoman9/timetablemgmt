@@ -10,6 +10,7 @@
     <property name="hibernate.show_sql">true</property>
     <property name="hibernate.hbm2ddl.auto">update</property>
     <property name="hibernate.current_session_context_class">thread</property>
+    <!--<mapping package="com.timetablemgmt.domainobjects"></mapping>-->
     <mapping class="com.timetablemgmt.domainobjects.UserRole"></mapping>
     <mapping class="com.timetablemgmt.domainobjects.College"></mapping>
     <mapping class="com.timetablemgmt.domainobjects.Login"></mapping>
