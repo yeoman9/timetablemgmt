@@ -29,7 +29,6 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
         <link href="assets/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
         <link href="assets/css/style-metro.css" rel="stylesheet" type="text/css"/>
         <link href="assets/css/style.css" rel="stylesheet" type="text/css"/>
-        <link href="assets/css/style-ttmgmt.css" rel="stylesheet" type="text/css"/>
         <link href="assets/css/style-responsive.css" rel="stylesheet" type="text/css"/>
         <link href="assets/css/themes/default.css" rel="stylesheet" type="text/css" id="style_color"/>
         <link href="assets/plugins/uniform/css/uniform.default.css" rel="stylesheet" type="text/css"/>
@@ -41,29 +40,41 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
         <link href="assets/plugins/jqvmap/jqvmap/jqvmap.css" rel="stylesheet" type="text/css" media="screen"/>
         <link href="assets/plugins/jquery-easy-pie-chart/jquery.easy-pie-chart.css" rel="stylesheet" type="text/css" media="screen"/>
         <!-- END PAGE LEVEL STYLES -->
+        <!-- BEGIN PAGE LEVEL STYLES -->
+        <link rel="stylesheet" type="text/css" href="assets/plugins/select2/select2_metro.css" />
+        <link rel="stylesheet" href="assets/plugins/data-tables/DT_bootstrap.css" />
+        <link rel="stylesheet" type="text/css" href="assets/plugins/jquery-ui/jquery-ui-1.10.1.custom.min.css"/>
+	<link href="assets/plugins/bootstrap-modal/css/bootstrap-modal.css" rel="stylesheet" type="text/css"/>
+        <!-- END PAGE LEVEL STYLES -->
         <link rel="shortcut icon" href="favicon.ico" />
-        <!-- END HEAD -->
-        <!-- BEGIN BODY -->
+    </head>
+    <!-- END HEAD -->
+    <!-- BEGIN BODY -->
     <body class="page-header-fixed">
         <!-- BEGIN HEADER -->
-        <jsp:include page="../../commons/header.jsp" />
+        <jsp:include page="../commons/header.jsp" />
         <!-- END HEADER -->
-
         <!-- BEGIN CONTAINER -->
         <div class="page-container">
-            <jsp:include page="../sidebar.jsp" />
+            
+            <!-- BEGIN SIDEBAR -->
+            <jsp:include page="sidebar.jsp" />
+            <!-- END SIDEBAR -->
+            
             <!-- BEGIN PAGE -->
             <div class="page-content">
+               
                 <!-- BEGIN PAGE CONTAINER-->
                 <div class="container-fluid">
                     <!-- BEGIN PAGE HEADER-->
-                    <jsp:include page="../page_header.jsp" />
+                    <jsp:include page="page_header.jsp" />
                     <!-- END PAGE HEADER-->
                     <div id="dashboard">
-                        <!-- BEGIN DASHBOARD STATS -->
-                        <jsp:include page="../branch_blocks.jsp"/>
                         <!-- END DASHBOARD STATS -->
                         <div class="clearfix"></div>
+                        <div id="teacherList">
+                            <jsp:include page="../teacherList.jsp" />
+                        </div>
                     </div>
                 </div>
                 <!-- END PAGE CONTAINER-->    
@@ -71,11 +82,12 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
             <!-- END PAGE -->
         </div>
         <!-- END CONTAINER -->
-
         <!-- BEGIN FOOTER -->
-        <jsp:include page="../../commons/footer.jsp" />
-        <!-- END FOOTER -->
+        
+        <jsp:include page="../commons/footer.jsp" />
 
+        <!-- END FOOTER -->
+        
         <!-- BEGIN JAVASCRIPTS(Load javascripts at bottom, this will reduce page load time) -->
         <!-- BEGIN CORE PLUGINS -->
         <script src="assets/plugins/jquery-1.10.1.min.js" type="text/javascript"></script>
@@ -114,6 +126,21 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
         <script src="assets/scripts/app.js" type="text/javascript"></script>
         <script src="assets/scripts/index.js" type="text/javascript"></script>        
         <!-- END PAGE LEVEL SCRIPTS -->  
+        <!-- BEGIN PAGE LEVEL PLUGINS -->
+        <script src="assets/plugins/bootstrap-modal/js/bootstrap-modal.js" type="text/javascript" ></script>
+	<script src="assets/plugins/bootstrap-modal/js/bootstrap-modalmanager.js" type="text/javascript" ></script>
+        <script type="text/javascript" src="assets/plugins/select2/select2.min.js"></script>
+        <script type="text/javascript" src="assets/plugins/data-tables/jquery.dataTables.js"></script>
+        <script type="text/javascript" src="assets/plugins/data-tables/DT_bootstrap.js"></script>
+        <!-- END PAGE LEVEL PLUGINS -->
+        <!-- BEGIN PAGE LEVEL SCRIPTS -->
+        <script src="assets/scripts/table-managed.js"></script> 
+        <script src="assets/scripts/ui-modals.js"></script>     
+       <!-- BEGIN PAGE LEVEL PLUGINS -->   
+	
+	<!-- END PAGE LEVEL PLUGINS -->
+	<!-- BEGIN PAGE LEVEL SCRIPTS -->
+	<!-- END PAGE LEVEL SCRIPTS --> 
         <script>
             jQuery(document).ready(function() {
                 App.init(); // initlayout and core plugins
@@ -125,15 +152,11 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
                 Index.initMiniCharts();
                 Index.initDashboardDaterange();
                 Index.initIntro();
+                TableEditable.init();
+                TableManaged.init();
+                UIModals.init();
             });
-
-            $(".more").click(function() {
-                $("#branch_blocks").hide();
-//                    window.location = "clerk_teacherList.htm?id=0";
-            });
-
         </script>
-
         <!-- END JAVASCRIPTS -->
     </body>
     <!-- END BODY -->
