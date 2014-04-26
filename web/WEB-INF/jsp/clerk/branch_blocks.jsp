@@ -12,7 +12,7 @@
         <c:if test="${count == 0}">
             <div>
             </c:if>
-            <div class="span3 responsive" data-tablet="span6" data-desktop="span3">
+            <div class="span3" data-tablet="span6" data-desktop="span3">
                 <div class="dashboard-stat ${color[count]}">
                     <div class="visual">
                         <!--<img src="assets/branch/ce.png" alt="ce"/>-->
