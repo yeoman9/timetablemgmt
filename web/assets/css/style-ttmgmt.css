@@ -8,16 +8,25 @@
 
 @import url(../fonts/font.css);
 .branch-text{
-font-family: cooperBlackStd;
-font-weight: bold;
-color: white;
-width: auto;
-height: auto;
-padding-top: 35px;
-font-size: 40px;
-text-shadow: 4px 2px 10px black;
+    font-family: cooperBlackStd;
+    font-weight: bold;
+    color: white;
+    width: auto;
+    height: auto;
+    padding-top: 35px;
+    font-size: 40px;
+    text-shadow: 4px 2px 10px black;
 }
 .branch-details{
-    
     margin-top: -80px !important ;
+}
+.p10top{
+    padding-top: 10px; 
+}
+.hodname{
+    width: 118px;
+    padding-top: 5px;
+    font-size: 13px;
+    letter-spacing: 0px;
+    color: white;
 }
