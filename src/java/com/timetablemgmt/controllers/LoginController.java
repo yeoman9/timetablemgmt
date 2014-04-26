@@ -46,7 +46,7 @@ public class LoginController {
     List<Branch> branches = null;
     List<Principal> principals = null;
     List<Semester> semesters = null;
-    List<Teacher> coOrdinators = null;
+    List<Teacher> listOfTeachers = null;
     Login loggedInUser;
 
     @RequestMapping(value = "/LoginAuth.htm")
@@ -80,9 +80,9 @@ public class LoginController {
                 case "ROLE_HOD":
                     Branch branch = teacherServiceIf.getByLoginId(loginServiceIf.getById(loggedInUser.getId())).getBranchId();
                     semesters = semesterServiceIf.getAllSemesterByBranch(branch);
-                    coOrdinators = teacherServiceIf.getTeachersByBranch(branch);
+                    listOfTeachers = teacherServiceIf.getTeachersByBranch(branch);
                     modelAndView.addObject("semesters", semesters);
-                    modelAndView.addObject("coOrdinators", coOrdinators);
+                    modelAndView.addObject("coOrdinators", listOfTeachers);
                     modelAndView.addObject("semester", "active");
                     modelAndView.addObject("newSemester", new Semester());
                     break;

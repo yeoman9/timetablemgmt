@@ -65,40 +65,22 @@
                 <h3>Add new Teacher</h3>
             </div>
             <!-- BEGIN FORM-->
-            <form:form action="addHod.htm" modelAttribute="newHod" class="form-horizontal">
+            <form:form action="saveAsHod.htm" modelAttribute="newHod" class="form-horizontal">
                 <div class="modal-body">
+
                     <div class="control-group">
-                        <label class="control-label">Name<span class="required">*</span></label>
+                        <label class="control-label">Branch<span class="required">*</span></label>
                         <div class="controls">
-                            <form:input path="name" type="text" placeholder="name" class="m-wrap medium"></form:input>
-                                <span class="help-inline">Some hint here</span>
-                            </div>
+                            <form:select id="branchList" path="branchId.shortName" items="${branches}" class="small m-wrap" tabindex="1">
+
+                            </form:select>
                         </div>
-                        <div class="control-group">
-                            <label class="control-label">Username<span class="required">*</span></label>
-                            <div class="controls">
-                            <form:input path="loginId.username" type="text" placeholder="username" class="m-wrap medium"></form:input>
-                                <span class="help-inline">Some hint here</span>
-                            </div>
-                        </div>
-                        <div class="control-group">
-                            <label class="control-label">Email<span class="required">*</span></label>
-                            <div class="controls">
-                            <form:input path="loginId.email" type="text" placeholder="email" class="m-wrap medium"></form:input>
-                                <span class="help-inline">Some hint here</span>
-                            </div>
-                        </div>
-                        <div class="control-group">
-                            <label class="control-label">Short Name<span class="required">*</span></label>
-                            <div class="controls">
-                            <form:input path="shortName" type="text" placeholder="alias" class="m-wrap small"></form:input>
-                                <span class="help-inline">Some hint here</span>
-                            </div>
-                        </div>
-                        <div class="control-group">
-                            <label class="control-label">Branch<span class="required">*</span></label>
-                            <div class="controls">
-                            <form:select path="branchId.shortName" items="${branches}" class="small m-wrap" tabindex="1">
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label">Teachers<span class="required">*</span></label>
+                        <div class="controls">
+                            <form:select id="teacherList" path="name" items="${teacherShortNames}"class="small m-wrap" tabindex="1">
+
 
                             </form:select>
                         </div>
@@ -112,10 +94,31 @@
                     <button type="button" data-dismiss="modal" class="btn">Close</button><!--
                     <!--</div>-->
                 </div>
-                        <form:hidden path="hod" value="true" />
+                <form:hidden path="hod" value="true" />
             </form:form>
         </div>
         <!-- END ADD NEW TEACHER MODAL -->
 
     </div>
 </div>
+<!--<script>
+    function makeServerCall() {
+        var branchSelected = $('#branchList').val();
+//        alert(branchSelected);
+        $.ajax({
+            url: "ajaxTeacherList.htm",
+            data: "branchSelected=" + branchSelected,
+            success: function(response) {
+//                alert('success : ' + response);
+                $('#teacherList').empty();
+                $.each(response, function(index, value) {
+                    
+                    $('#teacherList').append($('<option>').text(value).val(index));
+                });
+            },
+            error: function(xhRequest, ErrorText, thrownError) {
+                alert('Error: ' + '  ' + thrownError);
+            }
+        });
+    }
+</script>-->
